@@ -19,12 +19,17 @@ min11Rate = int(min11)
 
 counter = 0
 
-if s > 0:
+if s >= min1Rate:
     s = s - min1Rate
     counter = 1
+else:
+    counter = 0
 while s >= min2Rate and counter <= 9:
     s = s - min2Rate
     counter = counter + 1
 while s >= min11Rate and counter >= 10:
     s = s - min11Rate
     counter = counter + 1
+
+
+#important to check if s > min1Rate 
