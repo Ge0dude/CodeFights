@@ -5,6 +5,12 @@ Created on Wed Nov 16 10:14:21 2016
 @author: brendontucker
 """
 
+'''
+
+'A' as a first entry seems to throw somekind of 
+error where all 0s are returned. Don't know why.
+'''
+
 commands = 'ALLALLLL'
 
 currPos = 0
