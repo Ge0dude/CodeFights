@@ -8,12 +8,13 @@ Created on Sun Nov 20 17:02:54 2016
 import itertools
 
 iterable = range(4)
-r = 3
+r = 4
 
 
-
-for x in itertools.combinations(iterable, r):
-    print (x)
+while r > 0:
+    for x in itertools.combinations(iterable, r):
+        print (x)
+    r = r - 1
 '''
 def combinations(iterable, r):
     # combinations('ABCD', 2) --> AB AC AD BC BD CD
