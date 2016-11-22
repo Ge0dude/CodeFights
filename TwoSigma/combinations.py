@@ -12,7 +12,8 @@ length = len(stocks)
 iterable = range(4)
 r = 4
 
+x = 0
 
 while r > 0:
-    list(itertools.combinations(stocks, r))
+    group1 = list(itertools.combinations(stocks, r))
     r = r - 1
