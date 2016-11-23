@@ -12,7 +12,7 @@ error where all 0s are returned. Don't know why.
 pos may not be the right value to replace...
 '''
 
-commands = 'ALLALLLL'
+commands = 'AALLALLLL'
 
 currPos = 0
 poslist = list()
@@ -41,5 +41,5 @@ while posInList <= length1 - 1:
         poslist.insert(len(poslist), 2)
         currPos = 2
         posInList = posInList + 1
-        
+      
     
