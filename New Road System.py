@@ -17,8 +17,34 @@ roadRegister = [[false, true,  false, false],
 list1 = list()                
 rowNum = 0
 colNum = 0
+columns = list()
 
-#rowsolver
+#create an inverse and compare? 
+while  < len(roadRegister):
+    columns.append(roadRegister[rowNum][colNum])
+    rowNum = rowNum + 1
+    if rowNum = len(roadRegister) - 1:
+        colNum = colNum + 1
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+'''
 while rowNum < len(roadRegister):
     if roadRegister[rowNum][colNum] == 1:
         rowNum = rowNum + 1
@@ -26,10 +52,10 @@ while rowNum < len(roadRegister):
             if roadRegister[rowNum][colNum] == 1:
                 list1.append(1)
             else: 
-                rowNum = rowNum + 1
+                rowNum = rowNum + 1 
                 
     else: 
         colNum = colNum + 1
-
+'''
 
 
