@@ -26,16 +26,47 @@ while r > 0:
     group.append(list1)
     r = r - 1
 
+valuesSum = 0
 
-while lengthL < len(group):
-    while optionL < len(group[lengthL][optionL]):
-        while tradeL < len(group[lengthL][optionL][tradeL]):
-            valueSum = 
-            valuesList.append(group[lengthL][optionL][tradeL][0])
-            tradeL = tradeL + 1
-        optionL = optionL + 1
+while optionL < len(group[lengthL]):
+    while tradeL < len(group[lengthL][optionL]):
+        stockValue = group[lengthL][optionL][tradeL][0]
+        valuesSum = valuesSum + stockValue
+        tradeL = tradeL + 1
+    valuesList.append(valuesSum)
+    valuesSum = 0
+    optionL = optionL + 1
+lengthL = lengthL + 1
+'''
+while tradeL < len(group[lengthL][optionL]):
+    stockValue = group[lengthL][optionL][tradeL][0]
+    valuesSum = valuesSum + stockValue
+    tradeL = tradeL + 1
+valuesList.append(valuesSum)
+valuesSum = 0
+optionL = optionL + 1
+'''
+'''
+while optionL < len(group[lengthL]):
+lengthL = lengthL + 1
+'''
+
+'''
+if optionL >= len(group[lengthL]):
     lengthL = lengthL + 1
-        
-    
+'''
+'''
+while lengthL < len(group):
+    while optionL < len(group[lengthL]):
+        while tradeL < len(group[lengthL][optionL]):
+            stockValue = group[lengthL][optionL][tradeL][0]
+            valuesSum = valuesSum + stockValue
+            tradeL = tradeL + 1
+        valuesList.append(valuesSum)
+        valuesSum = 0
+        optionL = optionL + 1    
+    lengthL = lengthL + 1
+'''
+
 
 
