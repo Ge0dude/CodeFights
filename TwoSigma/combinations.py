@@ -28,6 +28,32 @@ while r > 0:
 
 valuesSum = 0
 
+for x in group:
+    while lengthL < len(group):
+        for x in group[lengthL]:
+            while optionL < len(group[lengthL]):
+                for x in group[lengthL][optionL]:
+                    while tradeL < len(group[lengthL][optionL]):
+                        stockValue = group[lengthL][optionL][tradeL][0]
+                        valuesSum = valuesSum + stockValue
+                        tradeL = tradeL + 1
+                valuesList.append(valuesSum)
+                valuesSum = 0
+                optionL = optionL + 1
+            valuesList.append(valuesSum)
+            valuesSum = 0
+            optionL = optionL + 1   
+        lengthL = lengthL + 1
+'''
+for x in group[lengthL][optionL]:
+    stockValue = group[lengthL][optionL][tradeL][0]
+    valuesSum = valuesSum + stockValue
+    tradeL = tradeL + 1
+valuesList.append(valuesSum)
+valuesSum = 0
+optionL = optionL + 1
+'''
+'''
 while optionL < len(group[lengthL]):
     while tradeL < len(group[lengthL][optionL]):
         stockValue = group[lengthL][optionL][tradeL][0]
@@ -37,6 +63,7 @@ while optionL < len(group[lengthL]):
     valuesSum = 0
     optionL = optionL + 1
 lengthL = lengthL + 1
+'''
 '''
 while tradeL < len(group[lengthL][optionL]):
     stockValue = group[lengthL][optionL][tradeL][0]
