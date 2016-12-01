@@ -15,19 +15,29 @@ roadRegister = [[false, true,  false, false],
                 [false, false, true,  false]]
 
 list1 = list()                
+
 rowNum = 0
 colNum = 0
-columns = list()
-
-#create an inverse and compare? 
-while  < len(roadRegister):
-    columns.append(roadRegister[rowNum][colNum])
-    rowNum = rowNum + 1
-    if rowNum = len(roadRegister) - 1:
+#knowlege from two sigma should help me be able to do this now--better 
+#understanding of loops
+while rowNum < len(roadRegister):
+    if roadRegister[0][0] == 1: 
+        list.append(1) #special case of top corner spot 
+    elif roadRegister[rowNum][colNum] == 1:
+        rowNum = colNum
+        while rowNum < len(roadRegister):
+            if roadRegister[rowNum][colNum] == 1:
+                list1.append(1)
+                break
+            else:
+                colNum = colNum + 1
+    else:
         colNum = colNum + 1
-
-
-
+    if colNum == len(roadRegister):
+        rowNum = rowNum + 1
+    
+#might need to do some conditional resetting for counting ot be proper 
+#on 
 
 
 
