@@ -48,22 +48,37 @@ while lengthL < len(group):
         optionL = 0
         tradeL = 0
 
-'''
-for x in group:
+lengthL = 0
+optionL = 0
+tradeL = 0
+binaryL = 0
+riskSum = 0
+
+while lengthL < len(group):
     for x in group[lengthL][optionL]:
-        stockValue = group[lengthL][optionL][tradeL][0]
-        valuesSum = valuesSum + stockValue
+        riskValue = group[lengthL][optionL][tradeL][1]
+        riskSum = riskSum + riskValue
         tradeL = tradeL + 1
         if tradeL == len(group[lengthL][optionL]):
-            valuesList.append(valuesSum)
-            valuesSum = 0
-    if optionL < (len(group[lengthL]) -1):
+            riskList.append(riskSum)
+            riskSum = 0
+    if len(group[lengthL]) == 1:
+        lengthL = lengthL + 1
+        optionL = 0
+        tradeL = 0
+    elif optionL < (len(group[lengthL]) -1):
         optionL = optionL + 1
         tradeL = 0
     else:
         lengthL = lengthL + 1
         optionL = 0
         tradeL = 0
-'''
+
+totalStockOptions = list(zip(valuesList, riskList))
+
+riskValue2 = 0
+stockValue2 = 0
+
+
 
 
