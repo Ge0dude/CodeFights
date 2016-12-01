@@ -4,6 +4,7 @@ Created on Sun Nov 20 17:02:54 2016
 
 @author: brendontucker
 """
+riskBudget = 30
 
 import itertools
 
@@ -76,9 +77,19 @@ while lengthL < len(group):
 
 totalStockOptions = list(zip(valuesList, riskList))
 
-riskValue2 = 0
+riskValue2 = 1
 stockValue2 = 0
 
+for x in totalStockOptions:
+    if totalStockOptions[stockValue2][riskValue2] > riskBudget:
+        totalStockOptions.remove(totalStockOptions[stockValue2])
+    stockValue2 = stockValue2 + 1
+
+maxReturn = max(totalStockOptions)
+
+
+
+        
 
 
 
