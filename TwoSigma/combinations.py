@@ -8,9 +8,7 @@ riskBudget = 31
 
 import itertools
 
-stocks = [[1,4], [2,5], [-1,2], [-2,5], [5,1], [3,2], 
-          [1,1], [1,2], [10,8], [20,18], [13,13], [9,12], [12,7], 
-            [10,12], [15,11]]
+stocks = [[-1,2], [-2,5]]
 
 iterable = range(4)
 valuesList = list()
@@ -35,7 +33,7 @@ r = length
 #need to check for length 0 and 1 here
 if len(stocks) == 0:
     maxReturn = 0
-if len(stocks) == 1:
+elif len(stocks) == 1:
     maxReturn = stocks[0][0]
 
  
