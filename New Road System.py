@@ -23,18 +23,27 @@ colNum = 0
 while rowNum < len(roadRegister):
     if roadRegister[0][0] == 1: 
         list.append(1) #special case of top corner spot 
+        rowNum = 1
+        colNum = 1
+        break
     elif roadRegister[rowNum][colNum] == 1:
         rowNum = colNum
         while rowNum < len(roadRegister):
             if roadRegister[rowNum][colNum] == 1:
                 list1.append(1)
                 break
-            else:
+            elif rowNum == (len(roadRegister) -1):
                 colNum = colNum + 1
+                rowNum = 0
+                break
+            else:
+                rowNum = rowNum + 1
+    elif colNum == (len(roadRegister) -1):
+        rowNum = rowNum + 1
+        colNum = 0
     else:
         colNum = colNum + 1
-    if colNum == len(roadRegister):
-        rowNum = rowNum + 1
+        
     
 #might need to do some conditional resetting for counting ot be proper 
 #on 
