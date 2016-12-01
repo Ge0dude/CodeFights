@@ -28,6 +28,22 @@ while r > 0:
 
 valuesSum = 0
 
+
+#I think this one is really close, just need to alter
+#where the valuesSum is happening, need to go back to inner loop
+while lengthL <= (len(group) - 1):
+    while optionL <= (len(group[0]) - 1):
+        for x in group[lengthL][optionL]:
+            stockValue = group[lengthL][optionL][tradeL][0]
+            valuesSum = valuesSum + stockValue
+            tradeL = tradeL + 1
+        valuesList.append(valuesSum)
+        valuesSum = 0
+        optionL = optionL + 1
+    lengthL = lengthL + 1
+
+
+'''
 for x in group:
     while lengthL < len(group):
         for x in group[lengthL]:
@@ -44,6 +60,7 @@ for x in group:
             valuesSum = 0
             optionL = optionL + 1   
         lengthL = lengthL + 1
+'''
 '''
 for x in group[lengthL][optionL]:
     stockValue = group[lengthL][optionL][tradeL][0]
