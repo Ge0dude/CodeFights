@@ -9,10 +9,13 @@ Created on Thu Nov 24 11:30:27 2016
 false = 0
 true = 1
 
-roadRegister = [[false, true,  false, false],
-                [false, false, true,  false],
-                [true,  false, false, true ],
-                [false, false, true,  false]]
+roadRegister =  [[false,true,false,false,false,false,false], 
+                 [true,false,false,false,false,false,false], 
+                 [false,false,false,true,false,false,false], 
+                 [false,false,true,false,false,false,false], 
+                 [false,false,false,false,false,false,true], 
+                 [false,false,false,false,true,false,false], 
+                 [false,false,false,false,false,true,false]]
 
 list1 = list()                
 
@@ -28,10 +31,11 @@ while r >= 0:
     if roadRegister[rowNum][colNum] == 1:
         colNum = rowNum
         rowNum = 0
-        while rowNum < (len(roadRegister) - 1):
+        while rowNum <= (len(roadRegister) - 1):
             if roadRegister[rowNum][colNum] == 1:
                 list1.append(1)
                 r = r - 1
+                colNum = 0
                 break
             else:
                 rowNum = rowNum + 1
