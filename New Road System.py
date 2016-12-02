@@ -20,6 +20,31 @@ rowNum = 0
 colNum = 0
 #knowlege from two sigma should help me be able to do this now--better 
 #understanding of loops
+r = (len(roadRegister) - 1)
+#something about special case if row and col num have been found needed
+#in first if block
+while r >= 0:
+    rowNum = r
+    if roadRegister[rowNum][colNum] == 1:
+        colNum = rowNum
+        rowNum = 0
+        while rowNum < (len(roadRegister) - 1):
+            if roadRegister[rowNum][colNum] == 1:
+                list1.append(1)
+                r = r - 1
+                break
+            else:
+                rowNum = rowNum + 1
+    else:
+        if colNum == (len(roadRegister) - 1):
+            r = r - 1
+        else:
+            colNum = colNum + 1
+            
+            
+
+
+'''
 while rowNum < len(roadRegister):
     if roadRegister[0][0] == 1: 
         list.append(1) #special case of top corner spot 
@@ -47,7 +72,7 @@ while rowNum < len(roadRegister):
     
 #might need to do some conditional resetting for counting ot be proper 
 #on 
-
+'''
 
 
 
