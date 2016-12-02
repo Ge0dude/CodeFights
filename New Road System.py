@@ -5,7 +5,7 @@ Created on Thu Nov 24 11:30:27 2016
 @author: brendontucker
 """
 
-
+#same number of roads is what is important.. oh no!
 false = 0
 true = 1
 
@@ -44,6 +44,12 @@ while r >= 0:
             r = r - 1
         else:
             colNum = colNum + 1
+
+if len(list1) == len(roadRegister):
+    ans = True
+else:
+    ans = False
+
             
             
 
