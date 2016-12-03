@@ -6,6 +6,10 @@ Created on Thu Nov 24 11:30:27 2016
 """
 
 #same number of roads is what is important.. oh no!
+#also need a condition for if there is no True value in a row, and if there 
+#is mroe than one true value... similar logic should apply
+#but creating the answer will be much more complex
+#don't know what data type to use yet
 false = 0
 true = 1
 
@@ -52,64 +56,5 @@ else:
 
             
             
-
-
-'''
-while rowNum < len(roadRegister):
-    if roadRegister[0][0] == 1: 
-        list.append(1) #special case of top corner spot 
-        rowNum = 1
-        colNum = 1
-        break
-    elif roadRegister[rowNum][colNum] == 1:
-        rowNum = colNum
-        while rowNum < len(roadRegister):
-            if roadRegister[rowNum][colNum] == 1:
-                list1.append(1)
-                break
-            elif rowNum == (len(roadRegister) -1):
-                colNum = colNum + 1
-                rowNum = 0
-                break
-            else:
-                rowNum = rowNum + 1
-    elif colNum == (len(roadRegister) -1):
-        rowNum = rowNum + 1
-        colNum = 0
-    else:
-        colNum = colNum + 1
-        
-    
-#might need to do some conditional resetting for counting ot be proper 
-#on 
-'''
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-'''
-while rowNum < len(roadRegister):
-    if roadRegister[rowNum][colNum] == 1:
-        rowNum = rowNum + 1
-        while rowNum < len(roadRegister):
-            if roadRegister[rowNum][colNum] == 1:
-                list1.append(1)
-            else: 
-                rowNum = rowNum + 1 
-                
-    else: 
-        colNum = colNum + 1
-'''
 
 
