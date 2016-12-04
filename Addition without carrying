@@ -6,8 +6,54 @@ Created on Sun Dec  4 13:12:41 2016
 @author: brendontucker
 """
 
-param1 = 1784
+param1 = 1734
 param2 = 456
 
-param11 = str(param1)
-param12 = str(param2)
+param11 = list(str(param1))
+param12 = list(str(param2))
+
+
+length11 = len(param11)
+length12 = len(param12)
+#this little bit would be nice to make recursive
+if length11 != length12:
+    if length11 > length12:
+        big = param11
+        small = param12
+    else:
+        big = param12
+        small = param12
+
+added = list()
+counter = 0
+bigLength = len(big)
+smallLength = len(small)
+for x in big:
+    if counter > len(small) - 1:
+        added.append(int(big[(bigLength - 1) - counter]))
+        counter = counter + 1
+    else:
+        added.append(int(big[(bigLength - 1) - counter]) + int(small[(smallLength - 1) - counter ]))
+        counter = counter + 1
+
+added.reverse()
+counter = 0
+added2 = list
+result = 0
+for x in added:
+    result1 = list(str(added[counter]))
+    if len(result1) > 1:
+        result2 = (list(str(added[counter])))
+        added2.append(result2)
+    else:
+        added2.append(result1)
+    counter = counter + 1
+    
+    
+'''    
+    if length11 < length12:
+        param11.insert(0, 0)
+    if length12 > length11:
+        param12.insert(0, 0)        
+'''
+
