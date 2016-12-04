@@ -25,68 +25,79 @@ def modCurr(currPos):
     return currPos
     
     
-commands = 'RLR'
-poslist = list()
-length1 = len(commands)
-posInList = 0
+def lineUp(commands):
+    poslist = list()
+    length1 = len(commands)
+    posInList = 0
+    currPos = 0
 
-while posInList <= length1 - 1:
-    if commands[posInList] == 'L':
-        currPos = currPos - 1
-        if currPos == 4:
-            currPos = 0
-        if currPos == -1:
-            currPos = 3
-        poslist.append(currPos)
-        posInList = posInList + 1
-    elif commands[posInList] == 'R':
-        currPos = currPos + 1
-        if currPos == 4:
-            currPos = 0
-        if currPos == -1:
-            currPos = 3
-        poslist.append(currPos)
-        posInList = posInList + 1
-    elif commands[posInList] == 'A':
-        currPos = 0
-        poslist.append(currPos)
-        posInList = posInList + 1
-        
-poslist2 = list()
-posInList = 0
-currPos = 0
+    while posInList <= length1 - 1:
+        if commands[posInList] == 'L':
+            currPos = currPos - 1
+            if currPos == 4:
+                currPos = 0
+            if currPos == -1:
+                currPos = 3
+            poslist.append(currPos)
+            posInList = posInList + 1
+        elif commands[posInList] == 'R':
+            currPos = currPos + 1
+            if currPos == 4:
+                currPos = 0
+            if currPos == -1:
+                currPos = 3
+            poslist.append(currPos)
+            posInList = posInList + 1
+        elif commands[posInList] == 'A':
+            currPos = currPos + 2
+            if currPos == 4:
+                currPos = 0
+            if currPos == 5:
+                currPos = 1
+            poslist.append(currPos)
+            posInList = posInList + 1
 
-while posInList <= length1 - 1:
-    if commands[posInList] == 'R':
-        currPos = currPos - 1
-        if currPos == 4:
-            currPos = 0
-        if currPos == -1:
-            currPos = 3
-        poslist2.append(currPos)
-        posInList = posInList + 1
-    elif commands[posInList] == 'L':
-        currPos = currPos + 1
-        if currPos == 4:
-            currPos = 0
-        if currPos == -1:
-            currPos = 3
-        poslist2.append(currPos)
-        posInList = posInList + 1
-    elif commands[posInList] == 'A':
-        currPos = 0
-        poslist2.append(currPos)
-        posInList = posInList + 1
+    poslist2 = list()
+    posInList = 0
+    currPos = 0
+
+    while posInList <= length1 - 1:
+        if commands[posInList] == 'R':
+            currPos = currPos - 1
+            if currPos == 4:
+                currPos = 0
+            if currPos == -1:
+                currPos = 3
+            poslist2.append(currPos)
+            posInList = posInList + 1
+        elif commands[posInList] == 'L':
+            currPos = currPos + 1
+            if currPos == 4:
+                currPos = 0
+            if currPos == -1:
+                currPos = 3
+            poslist2.append(currPos)
+            posInList = posInList + 1
+        elif commands[posInList] == 'A':
+            currPos = currPos + 2
+            if currPos == 4:
+                currPos = 0
+            if currPos == 5:
+                currPos = 1
+            poslist2.append(currPos)
+            posInList = posInList + 1
+
+    counter = 0
+    posInList = 0
+    while posInList <= length1 - 1:
+        if poslist[posInList] == poslist2[posInList]:
+            counter = counter + 1
+            posInList = posInList + 1
+        else:
+            posInList = posInList + 1
         
-counter = 0
-posInList = 0
-while posInList <= length1 - 1:
-    if poslist[posInList] == poslist2[posInList]:
-        counter = counter + 1
-        posInList = posInList + 1
-    else:
-        posInList = posInList + 1
-        
+    return counter 
+
 
 
 
