@@ -1,0 +1,13 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""
+Created on Sun Dec  4 13:12:41 2016
+
+@author: brendontucker
+"""
+
+param1 = 1784
+param2 = 456
+
+param11 = str(param1)
+param12 = str(param2)
