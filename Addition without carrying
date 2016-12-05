@@ -38,16 +38,26 @@ for x in big:
 
 added.reverse()
 counter = 0
-added2 = list
-result = 0
+added2 = list()
 for x in added:
-    result1 = list(str(added[counter]))
+    result1 = str(added[counter]) 
     if len(result1) > 1:
-        result2 = (list(str(added[counter])))
+        result2 = added[counter] - 10 #max value for two single digits is 18 
         added2.append(result2)
     else:
-        added2.append(result1)
+        added2.append(added[counter])
     counter = counter + 1
+
+    
+added3 = str(added2)
+added3.join()
+'''    
+counter = 0
+answer = str    
+while counter < len(added2):
+    answer = str(added2[counter]) + answer
+    counter = counter + 1  
+'''   
     
     
 '''    
