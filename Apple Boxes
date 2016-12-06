@@ -1,0 +1,49 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""
+Created on Tue Dec  6 08:57:59 2016
+
+@author: brendontucker
+"""
+
+k = 5
+even = False
+
+if k % 2 == 0:
+    even = True
+else:
+    even = False
+
+yellowList = list()
+redList = list()
+
+
+k1 = k
+k2 = k
+if even == False:
+    while (k1 - 1) >= 0:
+        yellowList.append(k1)
+        k1 = k1 - 2
+    k2 = k2 - 1 
+    while (k2 - 1) >= 0:
+        redList.append(k2)
+        k2 = k2 - 2    
+else:
+    k1 = k1 - 1
+    while (k1 - 1) >= 0:
+        yellowList.append(k1)
+        k1 = k1 - 2
+    while (k2 - 1) >= 0:
+        redList.append(k2)
+        k2 = k2 - 2
+redTotal = 0        
+for x in redList:
+    redTotal = x**2 + redTotal
+
+yellowTotal = 0    
+for x in yellowList:
+    yellowTotal = x**2 + yellowTotal
+
+ans = redTotal - yellowTotal 
+
+        
