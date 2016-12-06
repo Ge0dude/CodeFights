@@ -6,8 +6,8 @@ Created on Sun Dec  4 13:12:41 2016
 @author: brendontucker
 """
 
-param1 = 1734
-param2 = 456
+param1 = 456
+param2 = 1734
 
 param11 = list(str(param1))
 param12 = list(str(param2))
@@ -22,7 +22,10 @@ if length11 != length12:
         small = param12
     else:
         big = param12
-        small = param12
+        small = param11
+else:
+    big = param11
+    small = param12
 
 added = list()
 counter = 0
@@ -49,8 +52,14 @@ for x in added:
     counter = counter + 1
 
     
-added3 = str(added2)
-added3.join()
+counter = (len(added2) - 1)
+added3 = str()
+
+while counter >= 0:
+    added3 = str(added2[counter]) + added3
+    counter = counter - 1
+    
+added4 = int(added3)
 '''    
 counter = 0
 answer = str    
