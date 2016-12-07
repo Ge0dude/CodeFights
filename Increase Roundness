@@ -1,0 +1,31 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""
+Created on Wed Dec  7 09:32:26 2016
+
+@author: brendontucker
+"""
+
+n = 902200100
+boo1 = False
+n1 = str(n) 
+length = len(n1)
+zeroCount = 0
+zeroPosition = list()
+counter = 0
+for x in n1:
+    if n1[counter] == '0':
+        zeroCount = zeroCount + 1
+        zeroPosition.append(counter)
+    counter = counter + 1
+nonZero = length - zeroCount
+
+counter = 0
+
+while counter < zeroCount:
+    if zeroPosition[counter] < nonZero:
+        boo1 = True
+        break
+    else:
+        boo1 = False 
+    counter = counter + 1
