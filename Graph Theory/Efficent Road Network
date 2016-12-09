@@ -37,7 +37,13 @@ while counter2 <= length:
             counter1 = counter1 + 1
         else:
             counter1 = counter1 + 1
+    for x in connectList: 
+        #new connectList
+        #if connectList2 + connectList 1 .sort =! list1
+        #boo1 = False, break
+        #else, clear both lists 
+        #then add 1 to counter2 and do it all again
     counter2 = counter2 + 1
-    counter1 = 0 #could index connectList values and then do a boolean 
+    #counter1 = 0 #could index connectList values and then do a boolean 
     #need something to store the list here
   
