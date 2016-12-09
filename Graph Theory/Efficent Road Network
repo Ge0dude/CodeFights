@@ -18,6 +18,26 @@ while counter1 <= length:
     list1.append(counter1)
     counter1 = counter1 + 1
 
-roads.sort()
-    
-    
+pos1 = 0
+pos2 = 1
+counter1 = 0
+counter2 = 0
+connectValue = None
+connectList = list()
+
+while counter2 <= length:
+    while counter1 <= length:
+        if roads[counter1][pos1] == counter2: 
+            connectValue = roads[counter1][pos2]
+            connectList.append(connectValue)
+            counter1 = counter1 + 1
+        elif roads[counter1][pos2] == counter2:
+            connectValue = roads[counter1][pos1]
+            connectList.append(connectValue)
+            counter1 = counter1 + 1
+        else:
+            counter1 = counter1 + 1
+    counter2 = counter2 + 1
+    counter1 = 0 #could index connectList values and then do a boolean 
+    #need something to store the list here
+  
