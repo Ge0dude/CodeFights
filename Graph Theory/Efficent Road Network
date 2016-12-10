@@ -10,7 +10,7 @@ n = 6
 roads = [[3, 0], [0, 4], [5, 0], [2, 1],
           [1, 4], [2, 3], [5, 2]]
 
-boo1 = False
+boo1 = True
 list1 = list()
 length = n - 1
 counter1 = 0
@@ -23,44 +23,51 @@ pos2 = 1
 counter1 = 0
 counter2 = 0
 connectValue = None
-#connectList = list()
-connectList = [3, 4, 5]
+connectList = list()
+#connectList = [3, 4, 5] #for testing one loop
 connectList2 = list()
 counter4 = 0
-counter5 = 0
+counter5 = 1
+counter6 = 0
 length2 = len(connectList) - 1
-    
+'''    
 while counter4 <= length2: 
     counter3 = 0
     connectValue2 = None
-    while counter3 <= length:
+    while counter3 <= length + 1: #not sure why I have to add one here... this might mes up boundry problems
         if roads[counter3][pos1] == connectList[counter4]: 
             connectValue2 = roads[counter3][pos2]
-            if len(connectList2) > 0:
-                for x in connectList2:
-                    if connectValue2 == x:
-                        counter3 = counter3 + 1
-                    else:
-                        connectList2.append(connectValue2)
-                        counter3 = counter3 + 1
-            else:
-                connectList2.append(connectValue2)
+            connectList2.append(connectValue2)
+            counter3 = counter3 + 1
         elif roads[counter3][pos2] == connectList[counter4]:
             connectValue2 = roads[counter3][pos1]
-            if len(connectList2) > 0:
-                while counter5 <= (len(connectList2) - 1):
-                    if connectValue2 == connectList2[counter5]:
-                        counter5 = counter5 + 1
-                    else:
-                        connectList2.append(connectValue2)
-            else:
-                connectList2.append(connectValue2)
+            connectList2.append(connectValue2)
+            counter3 = counter3 + 1
         else:
             counter3 = counter3 + 1
     
     counter4 = counter4 + 1
+#if longer than one  
+connectList2.sort()
 
+while counter6 <= len(connectList2): #entry 0 has to be unique by def
+    while counter5 <= len(connectList2) - 1:
+        if connectList2[counter5] == connectList2[counter6]:
+            connectList2.remove(connectList2[counter5])
+            counter5 = counter5
+        else:
+            counter5 = counter5 + 1
+    counter6 = counter6 + 1
+    counter5 = 0
+    counter5 = counter6 + 1
+    
+#now just join two connect list, compare to list1, if true, boo1 still true, go again
+connectList3 = list()
+connectList3 = connectList2 + connectList
+boo2 = bool
+boo2 = connectList3 == list1
 '''
+
 while counter2 <= 0: #should be this [while counter2 <= length:]
     while counter1 <= length:
         if roads[counter1][pos1] == counter2: 
@@ -79,9 +86,8 @@ while counter2 <= 0: #should be this [while counter2 <= length:]
     
     while counter4 <= length2: 
         counter3 = 0
-        connectList2 = list()
         connectValue2 = None
-        while counter3 <= length:
+        while counter3 <= length + 1: #not sure why I have to add one here... this might mes up boundry problems
             if roads[counter3][pos1] == connectList[counter4]: 
                 connectValue2 = roads[counter3][pos2]
                 connectList2.append(connectValue2)
@@ -92,15 +98,49 @@ while counter2 <= 0: #should be this [while counter2 <= length:]
                 counter3 = counter3 + 1
             else:
                 counter3 = counter3 + 1
-        
+    
         counter4 = counter4 + 1
+    #if longer than one  
+    connectList2.sort()
+    
+    while counter6 <= len(connectList2): #entry 0 has to be unique by def
+        while counter5 <= len(connectList2) - 1:
+            if connectList2[counter5] == connectList2[counter6]:
+                connectList2.remove(connectList2[counter5])
+                counter5 = counter5
+            else:
+                counter5 = counter5 + 1
+        counter6 = counter6 + 1
+        counter5 = 0
+        counter5 = counter6 + 1
+        
+    #now just join two connect list, compare to list1, if true, boo1 still true, go again
+    connectList3 = list()
+    connectList3 = connectList2 + connectList
+    boo2 = bool
+    boo2 = connectList3 == list1
         #only want these added once so have to check for originality 
         #new connectList
         #if connectList2 + connectList 1 .sort =! list1
         #boo1 = False, break
         #else, clear both lists 
         #then add 1 to counter2 and do it all again
-    counter2 = counter2 + 1
+    if boo1 == boo2:
+        counter2 = counter2 + 1
+    else:
+        break
+    #should be able to return boo2 for the answer regardless
     #counter1 = 0 #could index connectList values and then do a boolean 
     #need something to store the list here
-'''  
+  
+
+'''
+#this gave me the good old infinite
+if len(connectList2) > 0:
+    while counter5 <= (len(connectList2) - 1):
+        if connectValue2 != connectList2[counter5]:
+            connectList2.append(connectValue2)
+        else:
+            counter5 = counter5 + 1
+'''
+                        
