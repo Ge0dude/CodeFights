@@ -38,6 +38,22 @@ while counter2 <= length:
         else:
             counter1 = counter1 + 1
     for x in connectList: 
+        counter3 = 0
+        counter4 = 0
+        connectList = list()
+        length2 = len(connectList)
+        while counter3 <= length2:
+            if roads[counter1][pos1] == connectList[counter3]: 
+            connectValue = roads[counter1][pos2]
+            connectList.append(connectValue)
+            counter1 = counter1 + 1
+        elif roads[counter1][pos2] == counter2:
+            connectValue = roads[counter1][pos1]
+            connectList.append(connectValue)
+            counter1 = counter1 + 1
+        else:
+            counter1 = counter1 + 1
+        
         #new connectList
         #if connectList2 + connectList 1 .sort =! list1
         #boo1 = False, break
