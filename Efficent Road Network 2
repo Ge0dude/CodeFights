@@ -1,17 +1,22 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-Created on Thu Dec  8 15:30:51 2016
+Created on Mon Dec 12 10:07:37 2016
+
+Doesn't work yet and not sure if it will even be any quicker... may need a 
+totally new design
 
 @author: brendontucker
 """
 
-n = 4
-roads = [[3,0], 
- [3,2], 
+\
+n = 6
+roads = [[0,4], 
+ [5,0], 
  [2,1], 
- [0,1], 
- [2,0]]
+ [1,4], 
+ [2,3], 
+ [5,2]]
 
 boo1 = True
 list1 = list()
@@ -33,10 +38,8 @@ counter4 = 0
 counter5 = 1
 counter6 = 0
 length2 = len(connectList) - 1
-'''
-if length == 0:
-    return True 
-'''
+
+
 while counter2 <= length: #should be this [while counter2 <= length:]
     connectList = list()
     counter1 = 0
@@ -62,8 +65,20 @@ while counter2 <= length: #should be this [while counter2 <= length:]
         while counter3 < roadLength: 
             if roads[counter3][pos1] == connectList[counter4]: 
                 connectValue2 = roads[counter3][pos2]
-                connectList2.append(connectValue2)
-                counter3 = counter3 + 1
+                if len(connectList2) > 0:
+                    connectLength = len(connectList2)
+                    connectCounter = 0
+                    while connectCounter < connectLength:
+                        if connectList2[connectCounter] == connectValue2:
+                            counter3 = counter3 + 1
+                            break
+                        else:
+                            connectCounter = connectCounter + 1
+                    connectList2.append(connectValue2)
+                    counter3 = counter3 + 1
+                else:        
+                    connectList2.append(connectValue2)
+                    counter3 = counter3 + 1
             elif roads[counter3][pos2] == connectList[counter4]:
                 connectValue2 = roads[counter3][pos1]
                 connectList2.append(connectValue2)
@@ -72,23 +87,7 @@ while counter2 <= length: #should be this [while counter2 <= length:]
                 counter3 = counter3 + 1
     
         counter4 = counter4 + 1
-    if len(connectList2) > 1:
-        connectList2.sort()
-        
-        counter5 = 1
-        counter6 = 0
-        '''
-        while counter6 <= len(connectList2): #entry 0 has to be unique by def
-            while counter5 <= len(connectList2) - 1:
-                if connectList2[counter5] == connectList2[counter6]:
-                    connectList2.remove(connectList2[counter5])
-                    counter5 = counter5
-                else:
-                    counter5 = counter5 + 1
-            counter6 = counter6 + 1
-            counter5 = 0
-            counter5 = counter6 + 1
-        '''
+
     connectList3 = list()
     connectList3 = connectList2 + connectList
     connectList3.sort()
@@ -113,5 +112,3 @@ while counter2 <= length: #should be this [while counter2 <= length:]
         counter2 = counter2 + 1
     else:
         break
-
-  
