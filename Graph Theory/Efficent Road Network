@@ -77,18 +77,7 @@ while counter2 <= length: #should be this [while counter2 <= length:]
         
         counter5 = 1
         counter6 = 0
-        '''
-        while counter6 <= len(connectList2): #entry 0 has to be unique by def
-            while counter5 <= len(connectList2) - 1:
-                if connectList2[counter5] == connectList2[counter6]:
-                    connectList2.remove(connectList2[counter5])
-                    counter5 = counter5
-                else:
-                    counter5 = counter5 + 1
-            counter6 = counter6 + 1
-            counter5 = 0
-            counter5 = counter6 + 1
-        '''
+
     connectList3 = list()
     connectList3 = connectList2 + connectList
     connectList3.sort()
