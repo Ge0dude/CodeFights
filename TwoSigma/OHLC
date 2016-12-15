@@ -31,4 +31,38 @@ expected_output = [["2015-12-20","HPQ","10.00","35.50","8.65","8.65"],
  ["2016-01-01","GOOG","100.35","100.35","100.35","100.35"], 
  ["2016-01-01","HPQ","10.00","10.00","10.00","10.00"]]
  
- 
+import datetime
+#convert unix time
+timeList =[]
+for x in timestamp:
+    timeList.append(datetime.datetime.fromtimestamp((x)).strftime('%Y-%m-%d'))
+
+checkCounter = 0
+incCounter = 1
+uniqueNum = 0#consider the zero-th entry to be unique 
+#need to find and organize unique days
+#use unique day count to create a list, will index them then too I guess
+while checkCounter < len(timeList):
+    while incCounter < len(timeList):
+        if timeList[checkCounter] == timeList[incCounter]
+    
+    
+    
+    
+    
+'''   
+    counter5 = 1
+    counter6 = 0
+    
+    while counter6 <= len(connectList3): #entry 0 has to be unique by def
+        while counter5 <= len(connectList3) - 1:
+            if connectList3[counter5] == connectList3[counter6]:
+                connectList3.remove(connectList3[counter5])
+                counter5 = counter5
+            else:
+                counter5 = counter5 + 1
+        counter6 = counter6 + 1
+        counter5 = 0
+        counter5 = counter6 + 1
+'''    
+    
