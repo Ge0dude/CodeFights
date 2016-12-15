@@ -23,7 +23,7 @@ serverLengthMatrix = [[0 for y in range(1)] for x in range(servers)]
 
 
 counter1 = 0
-while counter1 <= len(jobs):
+while counter1 <= (len(jobs) - 1):
     position = serverLengthMatrix.index(min(serverLengthMatrix))
     if counter1 <= length:
         serverMatrix[position][0] = counter1
