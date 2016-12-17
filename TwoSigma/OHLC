@@ -37,14 +37,27 @@ timeList =[]
 for x in timestamp:
     timeList.append(datetime.datetime.fromtimestamp((x)).strftime('%Y-%m-%d'))
 
+length1 = len(timeList)
 checkCounter = 0
 incCounter = 1
-uniqueNum = 0#consider the zero-th entry to be unique 
+#uniqueNum = 0#consider the zero-th entry to be unique 
 #need to find and organize unique days
 #use unique day count to create a list, will index them then too I guess
+#can trim timeList2with same method as end of LPT
+#don't need this! timeList2 = [[] for x in range(length1)]
+
+
 while checkCounter < len(timeList):
     while incCounter < len(timeList):
-        if timeList[checkCounter] == timeList[incCounter]
+        if timeList[checkCounter] == timeList[incCounter]:
+            timeList.remove(timeList[incCounter])
+            incCounter = incCounter
+        else:
+            incCounter = incCounter + 1
+    checkCounter = checkCounter + 1
+    incCounter = 0
+    incCounter = checkCounter + 1
+            #if incCunter = len - 1, add to list
     
     
     
