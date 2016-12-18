@@ -40,15 +40,11 @@ for x in timestamp:
 length1 = len(timeList)
 checkCounter = 0
 incCounter = 1
-#uniqueNum = 0#consider the zero-th entry to be unique 
-#need to find and organize unique days
-#use unique day count to create a list, will index them then too I guess
-#can trim timeList2with same method as end of LPT
-#don't need this! timeList2 = [[] for x in range(length1)]
+
 timeList2 = list()
 for x in timeList:
     timeList2.append(x)
-
+#find unique times
 while checkCounter < len(timeList):
     while incCounter < len(timeList):
         if timeList[checkCounter] == timeList[incCounter]:
@@ -59,7 +55,7 @@ while checkCounter < len(timeList):
     checkCounter = checkCounter + 1
     incCounter = 0
     incCounter = checkCounter + 1
-
+#organize indexes of unique times
 timeList3 = [[] for x in range(len(timeList))]
 incCounter = 0 
 checkCounter = 0
@@ -73,8 +69,40 @@ while checkCounter < len(timeList):
             incCounter = incCounter + 1
     checkCounter = checkCounter + 1
         #where is teh restart value?
-            
 
+instrumentList = list()
+for x in instrument:
+    instrumentList.append(x)
+
+checkCounter = 0
+incCounter = 1
+
+while checkCounter < len(instrumentList):
+    while incCounter < len(instrumentList):
+        if instrumentList[checkCounter] == instrumentList[incCounter]:
+            instrumentList.remove(instrumentList[incCounter])
+            incCounter = incCounter
+        else:
+            incCounter = incCounter + 1
+    checkCounter = checkCounter + 1
+    incCounter = 0
+    incCounter = checkCounter + 1           
+
+instrumentList2 = [[] for x in range(len(instrumentList))]
+
+incCounter = 0 
+checkCounter = 0
+while checkCounter < len(instrumentList):
+    incCounter = 0
+    while incCounter < len(instrument):
+        if instrumentList[checkCounter] == instrument[incCounter]:
+            instrumentList2[checkCounter].append(incCounter)
+            incCounter = incCounter + 1
+        else:
+            incCounter = incCounter + 1
+    checkCounter = checkCounter + 1
+    
+#timeList3 and instrumentList2, need to find where these two intersect.
 
             #if incCunter = len - 1, add to list
    
