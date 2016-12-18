@@ -102,27 +102,27 @@ while checkCounter < len(instrumentList):
             incCounter = incCounter + 1
     checkCounter = checkCounter + 1
     
+checkCounter = 0
+incCounter = 0
+listChecker = 0
+outputList = [[] for x in range(length1)]
+while checkCounter < len(instrumentList2):
+    if len(instrumentList2[checkCounter]) == 1:
+        outputList[checkCounter].append(instrumentList2[checkCounter]) #not sure about outputList position yet
+        checkCounter + 1
+    elif len(instrumentList2[checkCounter]) > 1:
+        while incCounter < len(instrumentList2[checkCounter]):
+            if instrumentList2[checkCounter][incCounter] in timeList3[listChecker]:
+                outputList[checkCounter].append(instrumentList2[checkCounter])
+                incCounter = incCounter + 1
+            else:
+                
+        #thehard part...
+#
+    
 #timeList3 and instrumentList2, need to find where these two intersect.
 
-            #if incCunter = len - 1, add to list
+
+    
+    
    
-    
-    
-    
-    
-'''   
-    counter5 = 1
-    counter6 = 0
-    
-    while counter6 <= len(connectList3): #entry 0 has to be unique by def
-        while counter5 <= len(connectList3) - 1:
-            if connectList3[counter5] == connectList3[counter6]:
-                connectList3.remove(connectList3[counter5])
-                counter5 = counter5
-            else:
-                counter5 = counter5 + 1
-        counter6 = counter6 + 1
-        counter5 = 0
-        counter5 = counter6 + 1
-'''    
-    
