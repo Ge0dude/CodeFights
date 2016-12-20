@@ -131,6 +131,21 @@ while checkCounter < len(instrumentList2):
         appendPos = appendPos + 1 
         
     checkCounter = checkCounter + 1
+outputList.sort()
+
+incCounter = 0 #just using to delete now
+while incCounter < len(outputList):
+    if outputList[incCounter] == []:
+        outputList.remove(outputList[incCounter])
+        incCounter = incCounter
+    else:
+        incCounter = incCounter + 1
+        
+outputList2 = [[]for x in range(len(outputList))]
+
+
+       
+
 
 #counter method
 '''    
