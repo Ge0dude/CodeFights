@@ -1,0 +1,28 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""
+Created on Tue Dec 20 14:46:09 2016
+
+@author: brendontucker
+"""
+
+
+instrumentList2 = [[0, 1, 2, 3, 5], [4], [6]]
+timeList3 = [[0, 1, 2, 3], [4], [5, 6]]
+outputList = [[] for x in range(length1)]
+instrumentList2.sort()
+timeList3.sort()
+incCounter = 0 
+checkCounter = 0
+listChecker = 0
+appendPos = 0
+
+
+
+while incCounter < len(instrumentList2[checkCounter]):
+    if instrumentList2[checkCounter][incCounter] in timeList3[listChecker]: 
+        outputList[appendPos].append(instrumentList2[checkCounter][incCounter])
+        incCounter = incCounter + 1 
+    else:
+        listChecker = listChecker + 1
+        appendPos = appendPos + 1 
