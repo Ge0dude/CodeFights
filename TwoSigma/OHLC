@@ -4,6 +4,10 @@
 Created on Thu Dec 15 11:47:09 2016
 
 @author: brendontucker
+
+pretty sure this whole thing could be solved with 
+vectors in NumPy a lot quicker..
+something something linear algebra
 """
 
 timestamp = [1450625399, 1450625400, 1450625500, 1450625550, 
@@ -143,6 +147,30 @@ while incCounter < len(outputList):
         
 outputList2 = [[]for x in range(len(outputList))]
 
+listChecker = 0
+incChecker = 0
+
+while listChecker < len(outputList):
+    if len(outputList[listChecker]) == 1:
+        #date--append the timestamp (str), get from timelist2, the value is taken from 
+        #outputList[listChecker][0]
+        outputList2[listChecker].append(timeList2[outputList[listChecker][0]])
+        #instrument value--same method as before
+        #outputList has all the answers bro
+        outputList2[listChecker].append(instrument[outputList[listChecker][0]])
+        #opening value
+        outputList2[listChecker].append('{:.2f}'.format(price[outputList[listChecker][0]]))
+        #high value--for length 1, going to be the same for all four...
+        outputList2[listChecker].append('{:.2f}'.format(price[outputList[listChecker][0]]))
+        outputList2[listChecker].append('{:.2f}'.format(price[outputList[listChecker][0]]))
+        outputList2[listChecker].append('{:.2f}'.format(price[outputList[listChecker][0]]))
+    else:
+        #group of sublists should be date and instrument coherent, so first entry
+        #is fine for date and instrumment
+        outputList2[listChecker].append(timeList2[outputList[listChecker][0]])
+        
+    listChecker = listChecker + 1
+        
 
        
 
