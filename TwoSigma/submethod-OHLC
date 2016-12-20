@@ -9,6 +9,7 @@ Created on Tue Dec 20 14:46:09 2016
 
 instrumentList2 = [[0, 1, 2, 3, 5], [4], [6]]
 timeList3 = [[0, 1, 2, 3], [4], [5, 6]]
+length1 = 7
 outputList = [[] for x in range(length1)]
 instrumentList2.sort()
 timeList3.sort()
@@ -25,4 +26,7 @@ while incCounter < len(instrumentList2[checkCounter]):
         incCounter = incCounter + 1 
     else:
         listChecker = listChecker + 1
-        appendPos = appendPos + 1 
+        if outputList[appendPos] == []:
+            appendPos = appendPos
+        else:
+            appendPos = appendPos + 1 

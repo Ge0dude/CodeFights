@@ -113,12 +113,27 @@ timeList3.sort()
 while checkCounter < len(instrumentList2):
     if len(instrumentList2[checkCounter]) == 1:
         outputList[appendPos].append(instrumentList2[checkCounter][0])
-        checkCounter = checkCounter + 1
         appendPos = appendPos + 1
     elif len(instrumentList2[checkCounter]) > 1:
         incCounter = 0
         listChecker = 0
         timeCounter = 0
+        while incCounter < len(instrumentList2[checkCounter]):
+            if instrumentList2[checkCounter][incCounter] in timeList3[listChecker]: 
+                outputList[appendPos].append(instrumentList2[checkCounter][incCounter])
+                incCounter = incCounter + 1 
+            else:
+                listChecker = listChecker + 1
+                if outputList[appendPos] == []:
+                    appendPos = appendPos
+                else:
+                    appendPos = appendPos + 1
+        appendPos = appendPos + 1 
+        
+    checkCounter = checkCounter + 1
+
+#counter method
+'''    
         while incCounter < len(instrumentList2[checkCounter]):
             timeCounter = 0
             while timeCounter < len(timeList3[listChecker]):
@@ -130,21 +145,4 @@ while checkCounter < len(instrumentList2):
             incCounter = incCounter + 1
             listChecker = listChecker + 1
             appendPos = appendPos + 1
-        
-    checkCounter = checkCounter + 1
-        #thehard part...
-#
-    
-#timeList3 and instrumentList2, need to find where these two intersect.
-
-            
-#why didn't this work?
-'''    
-while incCounter < len(instrumentList2[checkCounter]):
-    if instrumentList2[checkCounter][incCounter] in timeList3[listChecker]: 
-        outputList[appendPos].append(instrumentList2[checkCounter][incCounter])
-        incCounter = incCounter + 1 
-    else:
-        listChecker = listChecker + 1
-        appendPos = appendPos + 1    
-''' 
+'''
