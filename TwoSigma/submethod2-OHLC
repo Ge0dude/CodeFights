@@ -1,13 +1,9 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-Created on Thu Dec 15 11:47:09 2016
+Created on Wed Dec 21 08:41:01 2016
 
 @author: brendontucker
-
-pretty sure this whole thing could be solved with 
-vectors in NumPy a lot quicker..
-something something linear algebra
 """
 
 timestamp = [801840015, 1346505615, 1346505615, 1346505615, 1346505615, 
@@ -50,7 +46,7 @@ import datetime
 timeList =[]
 for x in timestamp:
     timeList.append(datetime.datetime.fromtimestamp((x)).strftime('%Y-%m-%d'))
-
+'''
 length1 = len(timeList)
 checkCounter = 0
 incCounter = 1
@@ -149,75 +145,4 @@ while checkCounter < len(instrumentList2):
         
     checkCounter = checkCounter + 1
 outputList.sort()
-
-incCounter = 0 #just using to delete now
-while incCounter < len(outputList):
-    if outputList[incCounter] == []:
-        outputList.remove(outputList[incCounter])
-        incCounter = incCounter
-    else:
-        incCounter = incCounter + 1
-        
-outputList2 = [[]for x in range(len(outputList))]
-
-listChecker = 0
-incChecker = 0
-
-while listChecker < len(outputList):
-    if len(outputList[listChecker]) == 1:
-        #date--append the timestamp (str), get from timelist2, the value is taken from 
-        #outputList[listChecker][0]
-        outputList2[listChecker].append(timeList2[outputList[listChecker][0]])
-        #instrument value--same method as before
-        #outputList has all the answers bro
-        outputList2[listChecker].append(instrument[outputList[listChecker][0]])
-        #opening value
-        outputList2[listChecker].append('{:.2f}'.format(price[outputList[listChecker][0]]))
-        #high value--for length 1, going to be the same for all four...
-        outputList2[listChecker].append('{:.2f}'.format(price[outputList[listChecker][0]]))
-        outputList2[listChecker].append('{:.2f}'.format(price[outputList[listChecker][0]]))
-        outputList2[listChecker].append('{:.2f}'.format(price[outputList[listChecker][0]]))
-    else:
-        #group of sublists should be date and instrument coherent, so first entry
-        #is fine for date and instrumment
-        outputList2[listChecker].append(timeList2[outputList[listChecker][0]])
-        outputList2[listChecker].append(instrument[outputList[listChecker][0]])
-        #organized by time, so entry zerp should be open
-        outputList2[listChecker].append('{:.2f}'.format(price[outputList[listChecker][0]]))
-        #need max() and min() now
-        startRange = outputList[listChecker][0]
-        endRange = outputList[listChecker][-1] + 1 #not inclusive, have to add one
-        maxValue = max(price[startRange:endRange])
-        minValue = min(price[startRange:endRange])
-        outputList2[listChecker].append('{:.2f}'.format(maxValue))
-        outputList2[listChecker].append('{:.2f}'.format(minValue))
-        outputList2[listChecker].append('{:.2f}'.format(price[endRange - 1]))
-        
-        
-        
-        
-        
-        
-        
-        
-        
-    listChecker = listChecker + 1
-        
-
-       
-
-
-#counter method
-'''    
-        while incCounter < len(instrumentList2[checkCounter]):
-            timeCounter = 0
-            while timeCounter < len(timeList3[listChecker]):
-                if instrumentList2[checkCounter][incCounter] == timeList3[listChecker][timeCounter]:
-                    outputList[appendPos].append(instrumentList2[checkCounter][incCounter])
-                    break
-                else:
-                    timeCounter = timeCounter + 1
-            incCounter = incCounter + 1
-            listChecker = listChecker + 1
-            appendPos = appendPos + 1
 '''
