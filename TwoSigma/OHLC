@@ -94,6 +94,7 @@ incCounter = 1
 #creation of extra data as an effort to not touch input data and easier prototyping
 #maybe alter original instrument list if memory demands still too high and time limit
 #exceeded
+instrumentList.sort()
 while checkCounter < len(instrumentList):
     while incCounter < len(instrumentList):
         if instrumentList[checkCounter] == instrumentList[incCounter]:
@@ -145,7 +146,7 @@ while checkCounter < len(instrumentList2):
                     appendPos = appendPos
                 else:
                     appendPos = appendPos + 1
-        #appendPos = appendPos + 1 
+        appendPos = appendPos + 1 
         
     checkCounter = checkCounter + 1
 outputList.sort()
@@ -157,7 +158,7 @@ while incCounter < len(outputList):
         incCounter = incCounter
     else:
         incCounter = incCounter + 1
-        
+ 
 outputList2 = [[]for x in range(len(outputList))]
 
 listChecker = 0
@@ -177,7 +178,7 @@ while listChecker < len(outputList):
         outputList2[listChecker].append('{:.2f}'.format(price[outputList[listChecker][0]]))
         outputList2[listChecker].append('{:.2f}'.format(price[outputList[listChecker][0]]))
         outputList2[listChecker].append('{:.2f}'.format(price[outputList[listChecker][0]]))
-    else:
+    elif len(outputList[listChecker]) > 1:
         #group of sublists should be date and instrument coherent, so first entry
         #is fine for date and instrumment
         outputList2[listChecker].append(timeList2[outputList[listChecker][0]])

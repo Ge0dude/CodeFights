@@ -46,14 +46,15 @@ import datetime
 timeList =[]
 for x in timestamp:
     timeList.append(datetime.datetime.fromtimestamp((x)).strftime('%Y-%m-%d'))
-'''
+
 length1 = len(timeList)
 checkCounter = 0
 incCounter = 1
-
+#copy of timeList
 timeList2 = list()
 for x in timeList:
     timeList2.append(x)
+
 #find unique times
 while checkCounter < len(timeList):
     while incCounter < len(timeList):
@@ -65,6 +66,7 @@ while checkCounter < len(timeList):
     checkCounter = checkCounter + 1
     incCounter = 0
     incCounter = checkCounter + 1
+
 #organize indexes of unique times
 timeList3 = [[] for x in range(len(timeList))]
 incCounter = 0 
@@ -90,6 +92,8 @@ incCounter = 1
 #creation of extra data as an effort to not touch input data and easier prototyping
 #maybe alter original instrument list if memory demands still too high and time limit
 #exceeded
+instrumentList.sort()
+#why did I have to sort!? v confusing... need to investigate further in future
 while checkCounter < len(instrumentList):
     while incCounter < len(instrumentList):
         if instrumentList[checkCounter] == instrumentList[incCounter]:
@@ -141,8 +145,24 @@ while checkCounter < len(instrumentList2):
                     appendPos = appendPos
                 else:
                     appendPos = appendPos + 1
-        #appendPos = appendPos + 1 
+        appendPos = appendPos + 1 #once inc spills over, new instrument is being looked
+        #at, so app must incerase 
         
     checkCounter = checkCounter + 1
+
 outputList.sort()
+
+incCounter = 0 #just using to delete now
+while incCounter < len(outputList):
+    if outputList[incCounter] == []:
+        outputList.remove(outputList[incCounter])
+        incCounter = incCounter
+    else:
+        incCounter = incCounter + 1
 '''
+#having shorter length instruments on same day come first...
+checkCounter = 0
+while checkCounter < len(timeList3):
+    if len(timeList3[checkCounter]) > 1:
+    #have to find which instrument they belong to...ugh    
+''' 
