@@ -4,21 +4,47 @@
 Created on Wed Dec 28 08:33:49 2016
 
 @author: brendontucker
+
+Would be more fun to do this mathematically, would take a while though
+something like dividin by order of magnitude
 """
 
-value = 1234
+value = 1445
 
 value2 = str(value)
 
 pos0 = len(value2) - 1 #have to make sure this never rounds the final number
 pos1 = pos0 - 1
+valueList = list() 
 
-while pos0 > 0:
-    if int(value2[pos0])
-    
-    
-
-'''
 for x in range(len(value2)):
-    if int(value2[x]) < 5
-    '''
+    valueList.append(value2[x]) 
+
+while pos0 >= 1: #have to do something different for final position
+    if pos1 == 0:
+        valueList[pos1] = valueList[pos1] #not sure about this block... so close
+        pos0 = pos0 - 1
+        pos1 = pos1 - 1
+    elif int(value2[pos0]) < 5:
+            valueList[pos0] = 0
+    else:
+        valueList[pos0] = 0
+        valueList[pos1] = int(value2[pos1]) + 1
+    pos0 = pos0 - 1
+    pos1 = pos1 - 1
+
+
+if type(valueList[0]) == str:
+    valueList[0] = int(valueList[0])   
+ 
+stringAns = str()
+#valueList.reverse()
+
+pos3 = 0
+while pos3 < len(valueList):
+    stringAns = stringAns + str(valueList[pos3])
+    pos3 = pos3 + 1
+                
+integerAns = int(stringAns)
+
+
