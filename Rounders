@@ -1,0 +1,24 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""
+Created on Wed Dec 28 08:33:49 2016
+
+@author: brendontucker
+"""
+
+value = 1234
+
+value2 = str(value)
+
+pos0 = len(value2) - 1 #have to make sure this never rounds the final number
+pos1 = pos0 - 1
+
+while pos0 > 0:
+    if int(value2[pos0])
+    
+    
+
+'''
+for x in range(len(value2)):
+    if int(value2[x]) < 5
+    '''
