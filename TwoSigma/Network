@@ -45,7 +45,52 @@ while nodePos <= len(range((range1))):
     appendPos = appendPos + 1
     nodePos = nodePos + 1
 
+counter = 0
+nodePos = minValue
+appendPos = 0
+options2 = [[] for x in range(range1)]
+while nodePos <= len(range((range1))):
+    counter = 0
+    while counter < len(network):
+        if network[counter][0] == nodePos:
+            options2[appendPos].append(network[counter])
+        counter = counter + 1
+    appendPos = appendPos + 1
+    nodePos = nodePos + 1
+    
 routes = [[] for x in range(int(connectionNumber))]
+
+import itertools
+group = list()
+r = maxValue - 1
+while r > 0:
+    list1 = list(itertools.combinations(network, r))
+    group.append(list1)
+    r = r - 1
+
+
+
+#len of options will always be n-1 , but no guarantees about sublengths
+'''
+appendPos = 0
+counter = 0
+counter2 = 0
+nextMove = 0
+
+while counter < maxValue - 1:
+    if network[counter]
+        if network[counter][1] == 4:
+            appendPos = appendPos + 1
+        else:
+            nextMove = network[counter][1]
+'''
+'''
+while appendPos < 2: #len(routes)
+    while counter2 < len(options[counter]):
+        while counter < len(options):
+            options3.append(options[counter][counter2])        
+'''
+
 '''
 counter = 0
 counter1 = 0
