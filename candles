@@ -1,0 +1,24 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""
+Created on Thu Dec 29 09:02:38 2016
+
+@author: brendontucker
+"""
+
+candlesNumber = 5
+
+makeNew = 2
+
+burnedCandles = 0
+
+leftOvers = 0
+
+leftOvers = candlesNumber
+burnedCandles = candlesNumber
+ #probably shouldn't change leftOvers until the end
+while leftOvers >= makeNew:
+    candlesNumber = leftOvers // makeNew
+    leftOvers2 = leftOvers % makeNew
+    burnedCandles = burnedCandles + candlesNumber
+    leftOvers = candlesNumber + leftOvers2
