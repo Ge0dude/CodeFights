@@ -9,7 +9,7 @@ Would be more fun to do this mathematically, would take a while though
 something like dividin by order of magnitude
 """
 
-value = 1445
+value = 99
 
 value2 = str(value)
 
@@ -18,14 +18,17 @@ pos1 = pos0 - 1
 valueList = list() 
 
 for x in range(len(value2)):
-    valueList.append(value2[x]) 
+    valueList.append(value2[x])
 
+counter = 0
+while counter < len(valueList):
+    valueList[counter] = int(valueList[counter])
+    counter = counter + 1
+
+   
+   
 while pos0 >= 1: #have to do something different for final position
-    if pos1 == 0:
-        valueList[pos1] = valueList[pos1] #not sure about this block... so close
-        pos0 = pos0 - 1
-        pos1 = pos1 - 1
-    elif int(value2[pos0]) < 5:
+    if int(valueList[pos0]) < 5:
             valueList[pos0] = 0
     else:
         valueList[pos0] = 0
@@ -46,5 +49,4 @@ while pos3 < len(valueList):
     pos3 = pos3 + 1
                 
 integerAns = int(stringAns)
-
 
