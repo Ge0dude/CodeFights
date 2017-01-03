@@ -125,8 +125,8 @@ listChecker = 0
 timeCounter = 0
 appendPos = 0 #where to append instrument/time independent entries
 outputList = [[] for x in range(length1)]
-instrumentList2.sort()
-timeList3.sort()
+#instrumentList2.sort()
+#timeList3.sort()
 while checkCounter < len(instrumentList2):
     if len(instrumentList2[checkCounter]) == 1:
         outputList[appendPos].append(instrumentList2[checkCounter][0])
@@ -150,7 +150,7 @@ while checkCounter < len(instrumentList2):
         
     checkCounter = checkCounter + 1
 
-outputList.sort()
+#outputList.sort()    
 
 incCounter = 0 #just using to delete now
 while incCounter < len(outputList):
@@ -159,10 +159,8 @@ while incCounter < len(outputList):
         incCounter = incCounter
     else:
         incCounter = incCounter + 1
-'''
-#having shorter length instruments on same day come first...
-checkCounter = 0
-while checkCounter < len(timeList3):
-    if len(timeList3[checkCounter]) > 1:
-    #have to find which instrument they belong to...ugh    
-''' 
+
+counter = 0
+counter2 = 0        
+while counter < len(outputList):
+   if outputList[counter][0] 

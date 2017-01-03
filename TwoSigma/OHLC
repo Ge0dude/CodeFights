@@ -10,10 +10,10 @@ vectors in NumPy a lot quicker..
 something something linear algebra
 """
 
-timestamp = [801840015, 1346505615, 1346505615, 1346505615, 1346505615, 
-             1346516000, 1592632799, 1592632799, 1592669600, 1592669600]
+timestamp = [801840015, 1346505615, 1346505615, 
+             1346505615, 1346505615, 1346516000, 1592632799, 1592632799, 1592669600, 1592669600]
 
-instrument = ["LAG", 
+instrument =["LAG", 
  "HPQ", 
  "HPQ", 
  "HPQ", 
@@ -23,6 +23,7 @@ instrument = ["LAG",
  "GOOG", 
  "AAOL", 
  "HPQ"]
+
 side = ["sell", 
  "sell", 
  "buy", 
@@ -119,15 +120,15 @@ while checkCounter < len(instrumentList):
         else:
             incCounter = incCounter + 1
     checkCounter = checkCounter + 1
-
+#need to lexicographically sort here 
 checkCounter = 0
 incCounter = 0
 listChecker = 0
 timeCounter = 0
 appendPos = 0 #where to append instrument/time independent entries
 outputList = [[] for x in range(length1)]
-instrumentList2.sort()
-timeList3.sort()
+#instrumentList2.sort()
+#timeList3.sort()
 while checkCounter < len(instrumentList2):
     if len(instrumentList2[checkCounter]) == 1:
         outputList[appendPos].append(instrumentList2[checkCounter][0])
@@ -152,6 +153,7 @@ while checkCounter < len(instrumentList2):
 outputList.sort()
 
 incCounter = 0 #just using to delete now
+#deletes uneeded list openings 
 while incCounter < len(outputList):
     if outputList[incCounter] == []:
         outputList.remove(outputList[incCounter])
@@ -197,28 +199,9 @@ while listChecker < len(outputList):
         
         
         
-        
-        
-        
-        
-        
+
     listChecker = listChecker + 1
         
 
        
 
-
-#counter method
-'''    
-        while incCounter < len(instrumentList2[checkCounter]):
-            timeCounter = 0
-            while timeCounter < len(timeList3[listChecker]):
-                if instrumentList2[checkCounter][incCounter] == timeList3[listChecker][timeCounter]:
-                    outputList[appendPos].append(instrumentList2[checkCounter][incCounter])
-                    break
-                else:
-                    timeCounter = timeCounter + 1
-            incCounter = incCounter + 1
-            listChecker = listChecker + 1
-            appendPos = appendPos + 1
-'''
