@@ -150,7 +150,7 @@ while checkCounter < len(instrumentList2):
         appendPos = appendPos + 1 
         
     checkCounter = checkCounter + 1
-outputList.sort()
+#outputList.sort()
 
 incCounter = 0 #just using to delete now
 #deletes uneeded list openings 
