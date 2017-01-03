@@ -43,7 +43,7 @@ expected_output = [["1995-05-30","LAG","50.40","50.40","50.40","50.40"],
  
 import datetime
 #convert unix time
-timeList =[]
+timeList = []
 for x in timestamp:
     timeList.append(datetime.datetime.fromtimestamp((x)).strftime('%Y-%m-%d'))
 
@@ -178,7 +178,7 @@ outputList2 = [[]for x in range(len(outputList))]
 
 listChecker = 0
 incChecker = 0
-
+'''
 while listChecker < len(outputList3):
     if len(outputList3[listChecker]) == 1:
         #date--append the timestamp (str), get from timelist2, the value is taken from 
@@ -212,7 +212,8 @@ while listChecker < len(outputList3):
         
     listChecker = listChecker + 1
 '''   
-while listChecker < len(outputList3):
+'''
+while listChecker < 1: #len(outputList3
         #group of sublists should be date and instrument coherent, so first entry
     #is fine for date and instrumment
     outputList2[listChecker].append(timeList2[outputList3[listChecker][0]])
@@ -231,3 +232,23 @@ while listChecker < len(outputList3):
         
     listChecker = listChecker + 1
 '''
+while listChecker < len(outputList3): #len(outputList3
+        #group of sublists should be date and instrument coherent, so first entry
+    #is fine for date and instrumment
+    outputList2[listChecker].append(timeList2[outputList3[listChecker][0]])
+    outputList2[listChecker].append(instrument[outputList3[listChecker][0]])
+    #organized by time, so entry zerp should be open
+    outputList2[listChecker].append('{:.2f}'.format(price[outputList3[listChecker][0]]))
+    #need max() and min() now
+    priceList = []
+    for x in outputList3[listChecker]:
+        priceList.append(price[x])
+    maxValue = max(priceList)
+    minValue = min(priceList)
+    outputList2[listChecker].append('{:.2f}'.format(maxValue))
+    outputList2[listChecker].append('{:.2f}'.format(minValue))
+    endRange = outputList3[listChecker][-1] + 1
+    outputList2[listChecker].append('{:.2f}'.format(price[endRange - 1]))
+        
+        
+    listChecker = listChecker + 1
