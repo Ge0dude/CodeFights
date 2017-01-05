@@ -5,4 +5,53 @@ Created on Wed Jan  4 08:19:17 2017
 
 @author: brendontucker
 """
+false = False
+true = True
+expectedOutput = [[false,false,false,true], 
+                 [false,false,true,true], 
+                 [false,true,false,true], 
+                 [true,true,true,false]]
+roadRegister = [[false, true,  true,  false],
+                [true,  false, true,  false],
+                [true,  true,  false, true ],
+                [false, false, true,  false]]
+                
+length = len(roadRegister)
 
+newRegister = [[]for x in range(length)]
+counter = 0
+counter2 = 0
+pos = 0    
+
+while counter <= 3: #len(roadRegister) - 1
+    counter2 = 0
+    while counter2 <= len(roadRegister) - 1:
+        if counter2 == length - 1:
+            pos = ((counter2 + 1) % length)
+        else:
+            pos = counter2 + 1
+        if counter == len(roadRegister) - 1 :
+            newRegister[pos].insert(0, roadRegister[counter][counter2])
+        else:
+            newRegister[pos].append(roadRegister[counter][counter2])
+        
+        counter2 = counter2 + 1
+        
+    counter = counter + 1
+        
+        
+
+'''   
+counter = len(roadRegister) - 1
+counter2 = len(roadRegister) - 1      
+while counter > 2:
+    counter2 = len(roadRegister) - 1
+    while counter2 >= 0:
+        if counter2 == length - 1:
+            pos = ((counter2 + 1) % length) 
+        else:
+            pos = counter2 + 1
+        newRegister[pos].append(roadRegister[counter][counter2])
+        counter2 = counter2 - 1
+    counter = counter - 1
+'''
