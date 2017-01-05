@@ -1,0 +1,24 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""
+Created on Thu Jan  5 13:39:48 2017
+
+@author: brendontucker
+"""
+
+topicIds = [[1, 2, 3], [2, 3, 4], [1, 4], [2, 3]]
+answerIds = [[6, 4], [1, 2], [5], [3]] 
+views = [[2, 1, 2], [6, 3, 5], [3, 3, 0], [5, 1, 1], [4, 2, 3], [1, 4, 2]]
+
+uniqueTopics = []
+
+counter = 0 
+counter2 = 0
+
+#yay I didn't use a while loop for once 
+for topics in topicIds:
+    for ids in topics:
+        if ids not in uniqueTopics:
+            uniqueTopics.append(ids)
+
+#length of unique topics is length of output array 
