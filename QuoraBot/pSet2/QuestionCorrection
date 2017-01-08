@@ -8,14 +8,14 @@ as much with regex as possible
 """
 
 
-question = "  Is,it    correct    ,    question" #" this isn't a       relevant question , is it??? "
+question = "  Is,it    correct    ,    question?" #" this isn't a       relevant question , is it??? "
 
 import re
 
-chars = re.nfidall()
-'''
-chars = re.findall('[\S]+', question)
+chars = re.findall('[^?]+', question)
 
+chars2 = re.findall('[\S]+', chars[0])
+'''
 counter = 0
 mark = list(chars[-1])
 while counter < len(mark):
