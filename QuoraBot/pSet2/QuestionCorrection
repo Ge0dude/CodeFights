@@ -8,7 +8,7 @@ as much with regex as possible
 """
 
 
-question = " this  isn't   a     relevant question , is it??? " 
+question = "questionword ,anotherquestionword,"
 
 import re
 
@@ -42,6 +42,9 @@ while counter < len(chars):#len(chars)
     if counter < len(chars) - 1:
         stringy = stringy + comma    
     counter = counter + 1
-    
-stringy = stringy  + '?'
+
+if stringy[-1] != ',':    
+    stringy = stringy  + '?'
+else:
+    stringy = stringy + space + '?'
 
