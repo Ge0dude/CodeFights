@@ -13,80 +13,30 @@ question = "  Is,it    correct    ,    question?" #" this isn't a       relevant
 import re
 
 chars = re.findall('[^?]+', question)
-
-chars2 = re.findall('[\S]+', chars[0])
-'''
-counter = 0
-mark = list(chars[-1])
-while counter < len(mark):
-    if mark[counter] == '?':
-        mark.remove(mark[counter])
-        counter = counter
-    else:
-        counter = counter + 1
-
-lastE = str()
-
-counter = 0
-while counter < len(mark):
-    if counter == 0:
-        lastE = mark[counter]
-    else:
-        lastE = lastE + mark[counter]
-   
-    counter = counter + 1
-
-chars[-1] = lastE
-        
-chars[0] = chars[0].title()
-
-answer = str()
+chars =  re.split(',', chars[0])
+chars[0].title()
+#chars2 = re.findall('[\S]+', question)
 counter = 0
 while counter < len(chars):
-    if chars[counter] == ',':
-        
-    elif counter == 0:
-        answer = chars[counter]
-    else:
-        answer = answer + ' ' + chars[counter]
-
-'''
-
-
-
-
-
-
-
-
-
-
-'''
-counter = 0
-while counter < len(chars):
-    mark = list(chars[counter])
+    chars[counter] = re.findall('[\S]+', chars[counter])
     counter = counter + 1
 
+
+stringy = str()    
+
 counter = 0
-counter2 = 0
-while counter2 < len(mark):
-    if '?' in 
-while counter < len(mark):
-    if mark[counter] == '?':
-        mark.remove(mark[counter])
-        counter = counter
-    else:
+while counter < 1:#len(chars)
+    if len(chars[counter]) < 1:
+        stringy = stringy + chars[counter] #need to change for zeroth entry
+        stringy = stringy + ','
+        stringy = stringy + ' '
         counter = counter + 1
-        
-
-'''
-
-'''
-mark = list(chars[-1])
-while counter < len(mark):
-    if mark[counter] == '?':
-        mark.remove(mark[counter])
-        counter = counter
     else:
-        counter = counter + 1
-'''
+        counter2 = 0
+        while counter2 < len(chars[counter]):
+            stringy = stringy + chars[counter][counter2]
+            counter2 = counter2 + 1
+    counter = counter + 1
+    
+stringy = stringy  + '?'
+
