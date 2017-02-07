@@ -7,3 +7,21 @@ Created on Tue Feb  7 11:09:12 2017
 """
 
 statues = [6, 2, 3, 8]
+
+statues.sort()
+
+right = 1
+left = 0
+needed = 0
+
+while right < len(statues):
+    if statues[right] - statues[left] > 1:
+        missing = statues[right] - statues[left]
+        needed = needed + (missing - 1)
+        left = left + 1
+        right = right + 1
+
+        
+    else:
+        left = left + 1
+        right = right + 1
