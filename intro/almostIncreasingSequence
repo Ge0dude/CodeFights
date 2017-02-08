@@ -1,0 +1,60 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""
+Created on Tue Feb  7 11:33:50 2017
+
+@author: brendontucker
+
+realized at the end that I solved a more complicated problem lolol
+"""
+
+sequence = [1, 3, 2, 1, 1]
+
+sequence.sort()
+
+#guranteed to be sorted in an increasing fashion 
+#just need to check for repition, it more than one double exists
+#or any triple, then the function should return false
+#wait, does double book catch everything? Two doubles of the same type are a triple...
+storeValue = 0
+left = 0
+right = 1
+doubleBool = False
+boolCounter = 0
+#checking for doubles
+while right < len(sequence):
+    if sequence[left] == sequence[right]:
+        boolCounter = boolCounter + 1
+        left = left + 1
+        right = right + 1
+    else:
+        left = left + 1
+        right = right + 1
+        
+if boolCounter > 1:
+    doubleBool = True
+
+    
+#checking for triples
+
+left = 0
+right = 1
+farRight = 0
+tripleBool = False
+
+while right < len(sequence):
+    if sequence[left] == sequence[right]:
+        farRight = right + 1
+        if sequence[farRight] == sequence[right]:
+            tripleBool = True
+            break
+        left = left + 1
+        right = right + 1
+    else:
+        left = left + 1
+        right = right + 1
+
+ans = False        
+
+if doubleBool and tripleBool == False:
+    
