@@ -1,0 +1,27 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""
+Created on Tue Feb  7 18:15:57 2017
+
+@author: brendontucker
+"""
+
+sequence = [1, 4, 10, 4, 2]
+
+left = 0
+right = 1
+decreaseCounter = 0
+
+while right < len(sequence):
+    if sequence[right] <= sequence[left]:
+        decreaseCounter += 1
+        if decreaseCounter > 1: #saving invisible resources here
+            break 
+        left += 1
+        right += 1
+    else:
+        left += 1
+        right += 1
+
+
+    
