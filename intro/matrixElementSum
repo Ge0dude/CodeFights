@@ -1,0 +1,42 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""
+Created on Tue Feb  7 18:41:11 2017
+
+@author: brendontucker
+"""
+
+matrix = [[0, 1, 1, 2], 
+          [0, 5, 0, 0], 
+          [2, 0, 3, 3]]
+          
+rowCount = len(matrix)
+
+total = 0
+current = 0
+row = 0 
+col = 0
+columnCount = len(matrix[0])
+
+
+
+
+'''
+while row < rowCount :    
+    col = 0
+    while col < colCount :
+        if matrix[row][col] == 0:
+            col += 1
+    
+'''    
+while col < columnCount :
+    row = 0
+    while row < rowCount :
+        if matrix[row][col] == 0:
+            break
+        else:
+            current = matrix[row][col]
+            total += current
+            row += 1
+    #after while row loop terminates
+    col += 1
