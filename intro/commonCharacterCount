@@ -1,0 +1,52 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""
+Created on Wed Feb  8 10:03:10 2017
+
+@author: brendontucker
+"""
+
+s1 = "zzzz"
+s2 = "zzzzzzz"
+
+s1List = list(s1)
+s2List = list(s2)
+#need to determine relative lengths I think... 
+s2List.sort()
+s1List.sort()
+
+reference = 0
+compare = 0
+inCommon = 0
+lastFoundPos = 0
+
+while reference < len(s1List):
+    compare = lastFoundPos #so we don't end up getting a bunch of false positives 
+    while compare < len(s2List):
+        if s1List[reference] == s2List[compare]:
+            inCommon += 1
+            lastFoundPos = compare
+            compare += 1
+            reference += 1
+            break
+        else:
+            compare += 1
+    reference += 1
+
+
+
+
+
+'''
+while reference < len(s1List):
+    compare = lastFoundPos #so we don't end up getting a bunch of false positives 
+    while compare < len(s2List):
+        if s1List[reference] == s2List[compare]:
+            inCommon += 1
+            lastFoundPos = compare
+            reference += 1
+            compare += 1
+        else:
+            compare += 1
+    reference += 1
+'''
