@@ -1,0 +1,43 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""
+Created on Thu Feb  9 11:31:30 2017
+
+@author: brendontucker
+"""
+
+a = [-1, 150, 190, 170, -1, -1, 160, 180]
+
+storageList = list()
+
+for x in a:
+    if x != -1:
+        storageList.append(x)
+        
+treePositions = list()
+
+counter = 0
+
+while counter < len(a):
+    if a[counter] != -1:
+        treePositions.append(counter)
+        counter += 1
+    else:
+        counter += 1
+        
+newList = [-1] * len(a)
+
+storageList.sort()
+
+posCounter = 0
+storageCounter = 0
+counter = 0 
+
+while posCounter < len(treePositions):
+    while storageCounter < len(storageList):
+        newList.insert(treePositions[posCounter] ,storageList[storageCounter])
+        storageCounter += 1
+    posCounter += 1
+    
+    
+#could just check non negative elements and see if they need to be switched 
