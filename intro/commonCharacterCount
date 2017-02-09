@@ -20,19 +20,31 @@ compare = 0
 inCommon = 0
 lastFoundPos = 0
 
-while reference < len(s1List):
+length1 = len(s1)
+length2 = len(s2)
+
+big = list() #ugh this didn't seem to help 
+small = list()
+
+if length1 >= length2:
+    big = s1List
+    small = s2List
+else:
+    big = s2List
+    small = s1List
+
+while reference < len(big): #len(s1List):
     compare = lastFoundPos #so we don't end up getting a bunch of false positives 
-    while compare < len(s2List):
-        if s1List[reference] == s2List[compare]:
+    while compare < len(small): #len(s2List):
+        if big[reference] == small[compare]:
             inCommon += 1
-            lastFoundPos = compare
+            lastFoundPos = compare + 1 #oh, was this the problem right here?
             compare += 1
             reference += 1
-            break
         else:
             compare += 1
-    reference += 1
-
+    if compare >= len(small):
+        reference += 1
 
 
 
@@ -43,10 +55,11 @@ while reference < len(s1List):
     while compare < len(s2List):
         if s1List[reference] == s2List[compare]:
             inCommon += 1
-            lastFoundPos = compare
+            lastFoundPos = compare + 1
             reference += 1
             compare += 1
         else:
             compare += 1
-    reference += 1
+    if compare >= len(small):
+        reference += 1
 '''
