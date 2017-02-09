@@ -7,5 +7,7 @@ Created on Thu Feb  9 12:06:32 2017
 """
 
 #could just check non negative elements and see if they need to be switched 
+#or merge
 
 a = [-1, 150, 190, 170, -1, -1, 160, 180]
+

@@ -31,13 +31,13 @@ storageList.sort()
 
 posCounter = 0
 storageCounter = 0
-counter = 0 
+counter = 0     
 
 while posCounter < len(treePositions):
     while storageCounter < len(storageList):
-        newList.insert(treePositions[posCounter] ,storageList[storageCounter])
+        newList[treePositions[posCounter]] = storageList[storageCounter] #not insert but = treePositions[posCounter]
         storageCounter += 1
-    posCounter += 1
+        posCounter += 1
     
     
 #could just check non negative elements and see if they need to be switched 
