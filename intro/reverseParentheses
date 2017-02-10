@@ -6,7 +6,7 @@ Created on Fri Feb 10 12:08:36 2017
 @author: brendontucker
 """
 
-s = "Code(Cha(lle)nge)"
+s = "this(is)Python(example)test" #"Code(Cha(lle)nge)"
 
 expectedOutput = "CodeegnlleahC"
 
@@ -34,7 +34,29 @@ for x in s:
 # find inner sections
 #max inner sections limited to number of parenthases
 
-innerContent = newS = [[] for x in range(paraCounter)]
+innerContent = [[] for x in range(paraCounter - 1)] #should be paraCounter -1
+                       
+closed1 = 0
+closed2 = 0
+
+innerCounter = 0
+innerPos = 0
+#put this all in a {while innerPos < len(innerContent)} ??
+while innerCounter < len(s):
+    if s[innerCounter] == ')':
+        closed1 = innerCounter
+        innerCounter += 1
+        while innerCounter < len(s):
+            if s[innerCounter] == '(':
+                closed2 = innerCounter
+                innerContent[innerPos] = s[closed1 + 1:closed2]
+                innerPos += 1
+                break
+            else:
+                innerCounter += 1
+        
+    else:
+        innerCounter += 1        
 
 #count parenthases
 #determine innermost
