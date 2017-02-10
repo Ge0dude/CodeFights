@@ -1,0 +1,45 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""
+Created on Fri Feb 10 12:08:36 2017
+
+@author: brendontucker
+"""
+
+s = "Code(Cha(lle)nge)"
+
+expectedOutput = "CodeegnlleahC"
+
+length = len(s)
+
+half = length // 2
+
+paraCounter = 0 
+
+for x in s:
+    if x == '(':
+        paraCounter += 1
+
+        
+prePara = list()
+
+#creates portion of word that has no reverse applied at the begining
+#might be harder to find Python in... "xxx(dd)Python(dd)xxxx"
+for x in s:
+    if x != '(':
+        prePara.append(x)
+    elif x == '(':
+        break
+    
+# find inner sections
+#max inner sections limited to number of parenthases
+
+innerContent = newS = [[] for x in range(paraCounter)]
+
+#count parenthases
+#determine innermost
+
+sList = list(s)
+
+ 
+newS = [[] for x in range(paraCounter)]
