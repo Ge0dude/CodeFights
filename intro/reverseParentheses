@@ -6,7 +6,7 @@ Created on Fri Feb 10 12:08:36 2017
 @author: brendontucker
 """
 
-s = "this(is)Python(example)test" #"Code(Cha(lle)nge)"
+s = "Code(Cha(lle)nge)"
 
 expectedOutput = "CodeegnlleahC"
 
@@ -25,11 +25,19 @@ prePara = list()
 
 #creates portion of word that has no reverse applied at the begining
 #might be harder to find Python in... "xxx(dd)Python(dd)xxxx"
-for x in s:
-    if x != '(':
-        prePara.append(x)
-    elif x == '(':
+closed1 = 0
+closed2 = 0
+
+preCounter = 0
+
+while preCounter < len(s):
+    if s[preCounter] == '(':
+        closed2 = preCounter
+        prePara = s[closed1:closed2]
         break
+    else:
+        preCounter += 1
+
     
 # find inner sections
 #max inner sections limited to number of parenthases
@@ -61,7 +69,58 @@ while innerCounter < len(s):
 #count parenthases
 #determine innermost
 
-sList = list(s)
-
+#sList = list(s)
  
 newS = [[] for x in range(paraCounter)]
+        
+newSCounter = 0
+closed1 = 0
+closed2 = 0
+newSPos = 0
+
+while newSCounter < len(s):
+    if s[newSCounter] == '(':
+        closed1 = newSCounter
+        newSCounter += 1
+        while newSCounter < len(s):
+            if s[newSCounter] == ')':
+                closed2 = newSCounter
+                newS[newSPos] = s[closed1 + 1:closed2]
+                newSPos += 1
+                break
+            else:
+                newSCounter += 1
+    else:
+        newSCounter += 1
+        
+reverseCounter = 0
+
+while reverseCounter < len(newS):
+    newS[reverseCounter] = newS[reverseCounter][::-1]
+    reverseCounter +=1
+
+#for words that occur after the     
+postPara = list()   
+postCounter = len(s) - 1
+
+closed2 = len(s)
+closed1 = 0
+
+while postCounter > 0:
+    if s[postCounter] == ')':
+        closed1 = postCounter
+        postPara = s[closed1 + 1:closed2 ]
+        break
+    else:
+        postCounter -= 1
+
+
+    
+'''
+#list version, rather keep it all as a string if possible 
+for x in s:
+    if x != '(':
+        prePara.append(x)
+    elif x == '(':
+        break
+'''
