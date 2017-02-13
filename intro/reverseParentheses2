@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-Created on Fri Feb 10 12:08:36 2017
+Created on Mon Feb 13 11:56:33 2017
 
 @author: brendontucker
 """
@@ -78,11 +78,14 @@ closed1 = 0
 closed2 = 0
 newSPos = 0
 
+#also need to generate newS with more options now since I'm not using append or list methods
+#and sticking with string manipulation
+#might need to switch to list methods...
 while newSCounter < 5: #len(s):
     if s[newSCounter] == '(':
         closed1 = newSCounter
         newSCounter += 1
-        while newSCounter < len(s):
+        while newSCounter < len(s):  #need an if here for finding a '(' before ')'
             if s[newSCounter] == ')':
                 closed2 = newSCounter
                 newS[newSPos] = s[closed1 + 1:closed2]
@@ -92,35 +95,3 @@ while newSCounter < 5: #len(s):
                 newSCounter += 1
     else:
         newSCounter += 1
-'''        
-reverseCounter = 0
-
-while reverseCounter < len(newS):
-    newS[reverseCounter] = newS[reverseCounter][::-1]
-    reverseCounter +=1
-
-#for words that occur after the     
-postPara = list()   
-postCounter = len(s) - 1
-
-closed2 = len(s)
-closed1 = 0
-
-while postCounter > 0:
-    if s[postCounter] == ')':
-        closed1 = postCounter
-        postPara = s[closed1 + 1:closed2 ]
-        break
-    else:
-        postCounter -= 1
-
-
-'''    
-'''
-#list version, rather keep it all as a string if possible 
-for x in s:
-    if x != '(':
-        prePara.append(x)
-    elif x == '(':
-        break
-'''
