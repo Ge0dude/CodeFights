@@ -7,7 +7,8 @@ Created on Mon Feb 13 11:56:33 2017
 """
 
 s = "Code(Cha(lle)nge)"
-
+#s = 'pre(inner(bracket)test(because)need)post'
+sList = list(s)
 expectedOutput = "CodeegnlleahC"
 
 length = len(s)
@@ -31,14 +32,14 @@ closed2 = 0
 preCounter = 0
 
 while preCounter < len(s):
-    if s[preCounter] == '(':
+    if sList[preCounter] == '(':
         closed2 = preCounter
-        prePara = s[closed1:closed2]
+        prePara = sList[closed1:closed2]
         break
     else:
         preCounter += 1
 
-    
+   
 # find inner sections
 #max inner sections limited to number of parenthases
 
@@ -50,14 +51,15 @@ closed2 = 0
 innerCounter = 0
 innerPos = 0
 #put this all in a {while innerPos < len(innerContent)} ??
-while innerCounter < len(s):
-    if s[innerCounter] == ')':
+#Don't actually think I need this for the new list method
+while innerCounter < len(sList):
+    if sList[innerCounter] == ')':
         closed1 = innerCounter
         innerCounter += 1
-        while innerCounter < len(s):
-            if s[innerCounter] == '(':
+        while innerCounter < len(sList):
+            if sList[innerCounter] == '(':
                 closed2 = innerCounter
-                innerContent[innerPos] = s[closed1 + 1:closed2]
+                innerContent[innerPos] = sList[closed1 + 1:closed2]
                 innerPos += 1
                 break
             else:
@@ -70,28 +72,73 @@ while innerCounter < len(s):
 #determine innermost
 
 #sList = list(s)
+newSNeed = 1 + ((paraCounter - 1) * 2)
  
-newS = [[] for x in range(paraCounter)]
-        
-newSCounter = 0
-closed1 = 0
-closed2 = 0
-newSPos = 0
+newS = [[] for x in range(newSNeed)]
 
-#also need to generate newS with more options now since I'm not using append or list methods
-#and sticking with string manipulation
+newSCounter = 0
+leftPara = 0
+leftPos = [[]for x in range((paraCounter // 2) + 1)]
+
+
+
+#find para positions?
+while newSCounter < len(sList):
+    if sList[newSCounter] == '(':
+        leftPos[leftPara] = newSCounter
+        leftPara =+ 1
+        newSCounter += 1
+    else:
+        newSCounter += 1 
+              
+    
+newSPos = 0
+rightPara = 0
+rightPos = [[]for x in range((paraCounter // 2) + 1)]
+
+
+while newSCounter < len(sList):
+    if sList[newSCounter] == ')':
+        rightPos[rightPara] = newSCounter
+        rightPara =+ 1
+        newSCounter += 1
+    else:
+        newSCounter += 1
+
+
+
+'''
+while newSCounter < 3:#len(sList):
+    if sList[newSCounter] == '(' or ')':
+        newSCounter += 1
+        if sList[newSCounter] != '(' or ')':
+            newS[newSPos].append(sList[newSCounter])
+            newSCounter += 1
+        else:
+            newSPos += 1
+            break
+    else:
+        newSCounter += 1
+'''
+
+
+
+
+'''
 #might need to switch to list methods...
-while newSCounter < 5: #len(s):
-    if s[newSCounter] == '(':
+#could use regex here
+while newSCounter < len(sList):
+    if sList[newSCounter] == '(' or ')':
         closed1 = newSCounter
         newSCounter += 1
-        while newSCounter < len(s):  #need an if here for finding a '(' before ')'
-            if s[newSCounter] == ')':
+        while newSCounter < len(sList):  #need an if here for finding a '(' before ')'
+            if s[newSCounter] == ')' or '(':
                 closed2 = newSCounter
-                newS[newSPos] = s[closed1 + 1:closed2]
+                newS[newSPos] = sList[closed1 + 1:closed2]
                 newSPos += 1
                 break
             else:
                 newSCounter += 1
     else:
         newSCounter += 1
+'''       
