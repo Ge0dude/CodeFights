@@ -85,60 +85,24 @@ leftPos = [[]for x in range((paraCounter // 2) + 1)]
 #find para positions?
 while newSCounter < len(sList):
     if sList[newSCounter] == '(':
-        leftPos[leftPara] = newSCounter
+        leftPos[leftPara].append(newSCounter)
         leftPara =+ 1
         newSCounter += 1
     else:
         newSCounter += 1 
-              
+           
     
 newSPos = 0
 rightPara = 0
 rightPos = [[]for x in range((paraCounter // 2) + 1)]
+newSCounter = 0
 
-
-while newSCounter < len(sList):
+while newSCounter < len(sList): 
     if sList[newSCounter] == ')':
-        rightPos[rightPara] = newSCounter
-        rightPara =+ 1
+        rightPos[rightPara].append(newSCounter)
+        rightPara += 1
         newSCounter += 1
     else:
         newSCounter += 1
 
-
-
-'''
-while newSCounter < 3:#len(sList):
-    if sList[newSCounter] == '(' or ')':
-        newSCounter += 1
-        if sList[newSCounter] != '(' or ')':
-            newS[newSPos].append(sList[newSCounter])
-            newSCounter += 1
-        else:
-            newSPos += 1
-            break
-    else:
-        newSCounter += 1
-'''
-
-
-
-
-'''
-#might need to switch to list methods...
-#could use regex here
-while newSCounter < len(sList):
-    if sList[newSCounter] == '(' or ')':
-        closed1 = newSCounter
-        newSCounter += 1
-        while newSCounter < len(sList):  #need an if here for finding a '(' before ')'
-            if s[newSCounter] == ')' or '(':
-                closed2 = newSCounter
-                newS[newSPos] = sList[closed1 + 1:closed2]
-                newSPos += 1
-                break
-            else:
-                newSCounter += 1
-    else:
-        newSCounter += 1
-'''       
+#forgot to reset the counter.... thats embaressing 
