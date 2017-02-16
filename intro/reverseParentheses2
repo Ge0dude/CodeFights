@@ -72,7 +72,7 @@ while innerCounter < len(sList):
 #determine innermost
 
 #sList = list(s)
-newSNeed = 1 + ((paraCounter - 1) * 2)
+newSNeed = 1 + ((paraCounter - 1) * 2) #this is an upper limit
  
 newS = [[] for x in range(newSNeed)]
 
@@ -92,7 +92,7 @@ while newSCounter < len(sList):
         newSCounter += 1 
            
     
-newSPos = 0
+
 rightPara = 0
 rightPos = [[]for x in range((paraCounter // 2) + 1)]
 newSCounter = 0
@@ -106,3 +106,36 @@ while newSCounter < len(sList):
         newSCounter += 1
 
 #forgot to reset the counter.... thats embaressing 
+
+#if we reverse right position then moving from right to elft through both leftPos
+#and rightPos we get teh inner brackets moving towards the outer
+#should probably just reverse leftPos then, will have inner brackets first
+#Might be a bad idea with an leftPos of length 1.... 
+leftPos.reverse()
+
+#this copies too much ...
+newSCounter = 0
+newSPos = 0
+while newSPos < len(rightPos):
+    if newSCounter == 0:
+        newS[newSPos] = sList[leftPos[newSCounter][0] + 1: rightPos[newSCounter][0]] 
+        newSPos += 1
+        newSCounter += 1
+    else: #have an even odd check here to partition each half correctly
+        newS[newSCounter] = sList[leftPos[newSCounter][0] + 1: leftPos[newSCounter - 1][0]]
+        newSPos += 1
+        newS[newSPos] =  newS[newSCounter] = sList[rightPos[newSCounter][0] + 1: rightPos[newSCounter - 1][0]]
+        newSPos += 1
+                            
+
+
+
+'''
+if newSCounter % 2 == 0:
+            newS[newSCounter] = sList[leftPos[newSCounter][0] + 1: leftPos[newSCounter - 1][0]]
+            newSCounter += 1
+        else:
+            newS[newSCounter] = sList[rightPos[newSCounter][0] + 1: rightPos[newSCounter - 1][0]]
+            newSCounter += 1
+'''
+    

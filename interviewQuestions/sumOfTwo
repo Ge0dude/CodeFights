@@ -1,0 +1,25 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""
+Created on Wed Feb 15 18:56:45 2017
+
+@author: brendontucker
+"""
+a = [1, 2, 3]
+b = [10, 20, 30, 40]
+v = 42
+
+
+#bruteforce first
+counter = 0
+counter2 = 0
+boo = False
+while counter < len(a):
+    counter2 = 0
+    while counter2 < len(b):
+        if a[counter] + b[counter2] == v:
+            boo = True
+            break
+        else:
+            counter2 += 1
+    counter += 1
