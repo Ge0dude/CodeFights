@@ -5,12 +5,14 @@ Created on Wed Feb 15 18:56:45 2017
 
 @author: brendontucker
 """
-a = [1, 2, 3]
-b = [10, 20, 30, 40]
-v = 42
+a = [6, 10, 25, 13, 20, 21, 11, 10, 18, 21]
+b = [21, 10, 6, 0, 29, 25, 1, 17, 19, 25]
+v = 37
 
 
 #bruteforce first
+#bruteforce passes tests but doesn't compute in enough time
+'''
 counter = 0
 counter2 = 0
 boo = False
@@ -23,3 +25,41 @@ while counter < len(a):
         else:
             counter2 += 1
     counter += 1
+'''
+
+a.sort()
+b.sort()
+#work down one list, check if sum is bigger than v,
+#work up tthe other list
+#can also consider using sum to get the average of each list and using that
+#to determine starting place
+#also need to check for special case with 0?
+counter = 0
+counter2 = len(b) - 1
+boo = False
+#doesn't pass all tests
+while counter < len(a):
+    counter2 = len(b) - 1
+    while counter2 > 0:
+        if a[counter] + b[counter2] == v:
+            boo = True
+            break
+        elif b[counter2] > v: #this will take care of special case for zero if zero in a
+            counter2 -= 1
+        elif a[counter] + b[counter2] > v:
+            counter2 -= 1
+        elif a[counter] + b[counter2] < v:
+            break
+    counter += 1
+
+
+
+
+
+
+
+
+
+
+
+
