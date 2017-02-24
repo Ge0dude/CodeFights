@@ -5,8 +5,8 @@ Created on Wed Feb 15 18:56:45 2017
 
 @author: brendontucker
 """
-a = [6, 10, 25, 13, 20, 21, 11, 10, 18, 21]
-b = [21, 10, 6, 0, 29, 25, 1, 17, 19, 25]
+a = [22, 26, 6, 22, 17, 11, 9, 22, 7, 12]
+b = [14, 25, 22, 27, 22, 30, 6, 26, 30, 27]
 v = 37
 
 
@@ -29,6 +29,50 @@ while counter < len(a):
 
 a.sort()
 b.sort()
+#could I do an altered version of Newton's Method? -- for both a and b?
+start = 1 
+end1 = len(a) - 1
+end2 = len(b) - 1
+counter = 0
+counter2 = 0
+#exit condition for false, start == end
+while boo != True:
+    if a[counter] + b[counter2] == v:
+        boo = True
+        break #do I need this?
+    elif counter == 0:
+        counter += 1
+        break
+    elif counter2 == 0:
+        counter2 += 1
+        break
+    elif a[counter] + b[counter2] < v:
+            counter = end1 // start
+            if a[counter] + b[counter2] == v:
+                boo = True
+                break
+            elif a[counter] + b[counter2] <:
+                
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+'''
 #work down one list, check if sum is bigger than v,
 #work up tthe other list
 #can also consider using sum to get the average of each list and using that
@@ -51,7 +95,7 @@ while counter < len(a):
         elif a[counter] + b[counter2] < v:
             break
     counter += 1
-
+'''
 
 
 
