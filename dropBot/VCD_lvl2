@@ -4,6 +4,9 @@
 Created on Mon Mar  6 15:57:16 2017
 
 @author: brendontucker
+
+'ab' in inputString[0:7] 
+will yield True, Python you are way too powerful 
 """
 
 inputString = "abacabadabacaba"
@@ -11,17 +14,43 @@ width = 7
 
 
 counter = 0
+tempResult = None
 result = None
 window = None
-backPos = 0
+backWindowPos = 0
+frontWindowPos = 0
+frontSearchPos = 0
+length = 0
 
 while counter < len(inputString):
     if counter == 0:
         result = inputString[0]
         counter += 1
     else:
-        backPos = counter - width #should be proper width since Python is inclusive
-        #at both ends with [] notation
-        if backPos < 0:  
-            backPos = 0
-        counter += 1
+        backWindowPos = counter - width 
+        '''should be proper width since Python is inclusive at both ends with [] notation'''
+        if backWindowPos < 0:  
+            backWindowPos = 0
+        if counter == 1:
+            frontWindowPos = 1 
+        else:
+            frontWindowPos = counter - 1 
+        '''does this work on the very last entry? '''
+        
+        '''takes care of the case that the current char is not in our window''' 
+        if inputString[counter] not in inputString[backWindowPos:frontWindowPos] :
+            result.append(inputString[counter])
+        else:
+            tempResult = inputString[counter] 
+            '''temporary value to be added to the result once it is assured that no longer'''
+            '''value can be found'''
+            frontSearchPos = counter + 2
+            while frontSearchPos - counter <= len(inputString[backWindowPos:frontWindowPos]): 
+                if inputString[counter:frontSearchPos] in inputString[backWindowPos:frontWindowPos]:
+                    '''need to do some indexing here'''
+                    length = len(inputString[counter:frontSearchPos]) 
+                    '''this length should be an exact copy of'''
+                    '''length from the sliding window copmression'''
+                    tempResult = inputString[counter:frontSearchPos] 
+                
+                
