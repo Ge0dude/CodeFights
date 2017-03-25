@@ -78,7 +78,7 @@ def domainDictGenerator(emailList):
 def gigabyteConverter(thedict):
 
     for x in thedict:
-        if thedict[x] > 500:
+        if thedict[x] >= 500:
             thedict[x] = 25
         elif thedict[x] < 500 and thedict[x] >= 300 :
             thedict[x] = 15
