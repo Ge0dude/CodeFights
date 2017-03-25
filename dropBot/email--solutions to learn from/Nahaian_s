@@ -1,0 +1,38 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""
+Created on Sat Mar 25 17:15:45 2017
+
+@author: brendontucker
+
+from Nahiana_S
+"""
+
+def campusCup(emails):
+    schools={}
+    #GBlevel= '1','2'
+    GBlevel=[]
+    for e in emails:
+        idx=e.find('@')
+        if e[idx+1:] in schools:
+            schools[e[idx+1:]].append(e[:idx])
+        else:
+            schools[e[idx+1:]]=[e[:idx]]
+    for s in schools:
+        nUser=len(schools[s])
+        if nUser<5:
+            pref='z'
+        elif nUser<10:
+            pref='y'
+        elif nUser<15:
+            pref='x'
+        elif nUser<25:
+            pref='w'
+        else:
+            pref='v'
+        GBlevel.append(pref+s)
+    GBlevel.sort()
+    for i in range(len(GBlevel)):
+        GBlevel[i]=GBlevel[i][1:]
+    
+    return GBlevel
