@@ -5,11 +5,11 @@ Created on Sat Mar 25 13:48:52 2017
 
 @author: brendontucker
 """
+import collections
 #nned to make some test data 
 emails =["a@testz.com", "a@testz.com", "a@testb.com",
          "a@testb.com", "a@testc.com", "a@testc.com"]
 
-import collections
 def domainDictGenerator(emailList): 
  
     domainNameDict = dict()
@@ -54,23 +54,52 @@ def gigabyteConverter(thedict):
     return thedict
         
         
-tester = gigabyteConverter(domainDictGenerator(emails))
-orderedTester = collections.OrderedDict(sorted(tester.items()))
-keyList = []
-for x in orderedTester:
-    keyList.append(x)
-valueList = []
-for x in orderedTester:
-    valueList.append(orderedTester[x])
+#tester = gigabyteConverter(domainDictGenerator(emails))
 
-outputList = []
+def campusCup(unOrderedDict):
+    theDict = domainDictGenerator(unOrderedDict)
+    convertedDict = gigabyteConverter(theDict)
+    orderedTester = collections.OrderedDict(sorted(convertedDict.items()))
+    keyList = []
+    for x in orderedTester:
+        keyList.append(x)
+    valueList = []
+    for x in orderedTester:
+        valueList.append(orderedTester[x])
+    
+    outputList = []
+    
+    
+    while len(valueList) > 0:
+        temp = max(valueList)
+        position = valueList.index(temp)
+        outputList.append(keyList[position])
+        valueList.pop(position)
+        keyList.pop(position)
+        
+    return outputList
+    
+print(campusCup(emails))
 
 
-while len(valueList) > 0:
-    temp = max(valueList)
-    position = valueList.index(temp)
-    outputList.append(keyList[position])
-    valueList.pop(position)
-    keyList.pop(position)
 
-
+#==============================================================================
+#         
+# orderedTester = collections.OrderedDict(sorted(tester.items()))
+#     keyList = []
+#     for x in orderedTester:
+#         keyList.append(x)
+#     valueList = []
+#     for x in orderedTester:
+#         valueList.append(orderedTester[x])
+#     
+#     outputList = []
+#     
+#     
+#     while len(valueList) > 0:
+#         temp = max(valueList)
+#         position = valueList.index(temp)
+#         outputList.append(keyList[position])
+#         valueList.pop(position)
+#         keyList.pop(position)
+#==============================================================================
