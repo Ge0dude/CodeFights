@@ -1,0 +1,32 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""
+Created on Sat Mar 25 13:48:52 2017
+
+@author: brendontucker
+"""
+
+emails = ["a@rain.ifmo.ru", 
+ "b@rain.ifmo.ru", 
+ "c@rain.ifmo.ru", 
+ "d@rain.ifmo.ru", 
+ "e@rain.ifmo.ru", 
+ "noname@mit.edu"]
+
+domainNameDict = dict()
+domainCounterList = []
+
+
+ 
+backCounter = len(emails[5]) - 1
+while backCounter > 0:
+    if emails[5][backCounter] == '@':
+        atLocation = backCounter
+        domainName = emails[5][atLocation:len(emails[5])]
+        if domainName in domainNameDict:
+            domainNameDict[domainName] += 1
+        else:
+            domainNameDict[domainName] = 1
+        break
+    else:
+        backCounter -= 1 

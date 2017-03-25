@@ -51,6 +51,9 @@ while counter < len(inputString):
                     length = len(inputString[counter:frontSearchPos]) 
                     '''this length should be an exact copy of'''
                     '''length from the sliding window copmression'''
-                    tempResult = inputString[counter:frontSearchPos] 
+                    tempResult = inputString[counter:frontSearchPos]
+                else:
+                    '''this is where tempResult gets added to the result--no longer string can be found
+                    in the search window'''
                 
                 
