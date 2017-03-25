@@ -6,27 +6,87 @@ Created on Sat Mar 25 13:48:52 2017
 @author: brendontucker
 """
 
-emails = ["a@rain.ifmo.ru", 
- "b@rain.ifmo.ru", 
- "c@rain.ifmo.ru", 
- "d@rain.ifmo.ru", 
- "e@rain.ifmo.ru", 
- "noname@mit.edu"]
+emails =["b@harvard.edu", "c@harvard.edu", "d@harvard.edu", 
+          "e@harvard.edu", "f@harvard.edu",
+          "a@student.spbu.ru", "b@student.spbu.ru", "c@student.spbu.ru", 
+          "d@student.spbu.ru", "e@student.spbu.ru", "f@student.spbu.ru", 
+          "g@student.spbu.ru"]
 
-domainNameDict = dict()
-domainCounterList = []
 
-domainNameDict['@mit.edu'] = 1
+def domainDictGenerator(emailList): 
  
-backCounter = len(emails[5]) - 1
-while backCounter > 0:
-    if emails[5][backCounter] == '@':
-        atLocation = backCounter
-        domainName = emails[5][atLocation:len(emails[5])]
-        if domainName in domainNameDict:
-            domainNameDict[domainName] += 1
+    domainNameDict = dict()
+    
+    # just a tester line domainNameDict['@mit.edu'] = 1
+    emailCounter = 0 
+    while emailCounter < len(emailList) :
+        backCounter = len(emailList[emailCounter]) - 1
+        while backCounter > 0:
+            if emails[emailCounter][backCounter] == '@':
+                atLocation = backCounter
+                domainName = emailList[emailCounter][atLocation + 1:len(emails[emailCounter])]
+                if domainName in domainNameDict:
+                    domainNameDict[domainName] += 20
+                else:
+                    domainNameDict[domainName] = 20
+                break
+            else:
+                backCounter -= 1 
+        emailCounter += 1
+        
+    return domainNameDict
+    
+#thedict = domainDictGenerator(emails)
+#thedict['@new.dug'] = 303
+
+
+def gigabyteConverter(thedict):
+
+    for x in thedict:
+        if thedict[x] > 500:
+            thedict[x] = 25
+        elif thedict[x] < 500 and thedict[x] >= 300 :
+            thedict[x] = 15
+        elif thedict[x] < 300 and thedict[x] >= 200 :
+            thedict[x] = 8
+        elif thedict[x] < 200 and thedict[x] >= 100 :
+            thedict[x] = 3
         else:
-            domainNameDict[domainName] = 1
-        break
-    else:
-        backCounter -= 1 
+            thedict[x] = 0
+            
+    return thedict
+        
+        
+tester = gigabyteConverter(domainDictGenerator(emails))
+
+keyList = []
+for x in tester:
+    keyList.append(x)
+valueList = []
+for x in tester:
+    valueList.append(tester[x])
+
+outputList = []
+#probs gonna need recursion here
+
+temp = max(valueList)
+position = valueList.index(temp)
+outputList.append(keyList[position])
+#check next entry, if it has teh same value as temp, then compare teh key values
+#lexicographically and compare
+    
+    
+    
+    
+    
+    
+    
+'''    
+alphaKeyList = []
+for x in tester:
+    alphaKeyList.append(x)
+alphaKeyList.sort()
+'''
+#for x in valueList:
+#    for y in valueList[1:]:
+#        if x == y:
