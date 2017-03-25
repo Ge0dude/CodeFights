@@ -16,7 +16,7 @@ emails = ["a@rain.ifmo.ru",
 domainNameDict = dict()
 domainCounterList = []
 
-
+domainNameDict['@mit.edu'] = 1
  
 backCounter = len(emails[5]) - 1
 while backCounter > 0:
