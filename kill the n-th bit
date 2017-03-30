@@ -21,3 +21,6 @@ k = 3
 #binStr = ''.join(binaryN)
 #binInt = int(binStr, 2)
 #
+((n>>k)<<k) + n % (1<<(k-1))
+
+'''found that solution on the message boards...'''
