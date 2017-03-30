@@ -8,9 +8,16 @@ Created on Thu Mar 30 18:35:05 2017
 feel like generating binary numbers should easily be a recursive problem...
 
 jk jk these are all covered by built in functions
+
+Codefights requires this to be a oneliner?
 """
 
 n = 37
+k = 3
 
-binaryN = list(bin(n))
-binaryN = binaryN[2:]
+#binaryN = list(bin(n))
+##binaryN = binaryN[2:]
+#binaryN[-k] = '0'
+#binStr = ''.join(binaryN)
+#binInt = int(binStr, 2)
+#
