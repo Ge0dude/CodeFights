@@ -39,7 +39,7 @@ while counter < len(inputString):
         
         '''takes care of the case that the current char is not in our window''' 
         if inputString[counter] not in inputString[backWindowPos:frontWindowPos] :
-            result.append(inputString[counter])
+            result += inputString[counter]
         else:
             tempResult = inputString[counter] 
             '''temporary value to be added to the result once it is assured that no longer'''
@@ -53,7 +53,10 @@ while counter < len(inputString):
                     '''length from the sliding window copmression'''
                     tempResult = inputString[counter:frontSearchPos]
                 else:
+                    result += tempResult
                     '''this is where tempResult gets added to the result--no longer string can be found
                     in the search window'''
+                    
+        counter += 1
                 
                 
