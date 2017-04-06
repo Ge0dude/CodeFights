@@ -9,3 +9,54 @@ don't remember my old thinking too well, sadly didn't comment well enough
 
 """
 
+inputString = "abacabadabacaba"
+width = 7
+
+
+counter = 0
+tempResult = None
+result = None
+window = None
+backWindowPos = 0
+frontWindowPos = 0
+frontSearchPos = 0 #for after a search is made
+length = 0
+
+while counter < len(inputString):
+    if counter == 0:
+        result = inputString[counter]
+    else:
+        backWindowPos = counter - width
+        if backWindowPos < 0:
+            backWindowPos = 0
+        if counter == 1:
+            frontWindowPos = 1
+        else:
+            frontWindowPos = counter - 1
+        
+        if inputString[counter] not in inputString[backWindowPos:frontWindowPos]:
+            result += inputString[counter]
+        else:
+            tempResult = inputString[counter]
+            frontSearchPos = counter + 2 #is this because teh front end isn't 
+            #inclusive? I bet so...
+            while frontSearchPos - counter <= len(inputString[backWindowPos:frontWindowPos]):
+                #I believe this could have loop issues towards the end of inputstring
+                #if overshooting the back 
+                if inputString[counter:frontSearchPos] in inputString[backWindowPos:frontWindowPos]:
+                    tempResult = inputString[counter:frontSearchPos]
+                    #need to increase frontSearchPos here, right?
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                

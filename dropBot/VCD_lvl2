@@ -53,7 +53,7 @@ while counter < len(inputString):
                     '''length from the sliding window copmression'''
                     tempResult = inputString[counter:frontSearchPos]
                 else:
-                    result += tempResult
+                    result += 
                     '''this is where tempResult gets added to the result--no longer string can be found
                     in the search window'''
                     
