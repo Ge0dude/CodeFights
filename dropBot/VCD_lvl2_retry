@@ -22,6 +22,7 @@ frontWindowPos = 0
 frontSearchPos = 0 #for after a search is made
 length = 0
 
+
 while counter < len(inputString):
     if counter == 0:
         result = inputString[counter]
@@ -46,6 +47,15 @@ while counter < len(inputString):
                 if inputString[counter:frontSearchPos] in inputString[backWindowPos:frontWindowPos]:
                     tempResult = inputString[counter:frontSearchPos]
                     #need to increase frontSearchPos here, right?
+                    #also, this is temp result, but it needs to eventually be in
+                    #(x,y) format
+                    length = len(inputString[counter:frontSearchPos])
+                else:
+                    #this is where teh actual assignment occurs
+                    #this could maybe be broken into its own function
+                    result += ( '(' + str(inputString[backWindowPos:frontWindowPos].index(tempResult)) + ',' + str(length) + ')' )
+                frontSearchPos += 1
+    counter += 1
                 
                 
                 
